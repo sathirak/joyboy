@@ -1,0 +1,62 @@
+
+@font-face {
+    font-family: 'Tilt Neon';
+    src: url('assets/fonts/Tilt_Neon/TiltNeon-Regular-VariableFont_XROT\,YROT.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Young Serif';
+    src: url('assets/fonts/Young_Serif/YoungSerif-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Pacifico';
+    src: url('assets/fonts/Pacifico/Pacifico-Regular.ttf') format('truetype');
+}
+
+:root {
+    --brand-active:#11BABF;
+    --brand: #28D6DB;
+    --brand-link: #63E8EC; 
+    --brand-background: #A9F8E5;
+    --brand-accent: #F5E5C9;
+    --brand-highlight: #EDD09F;
+
+    --mono-nav: #050505;
+    --mono-tar: #303030;
+    --mono-title: #4B4B4B;
+    --mono-subtitle: #8A8A8A;
+    --mono-smoke: #f5f5f5;
+
+    --box-shadow: 0px 2px 6px 2px rgb(172 172 172 / 34%), 0px 1px 2px 0px rgb(165 165 165 / 11%);
+    --text-shadow: 0px 2px 6px rgba(172, 172, 172, 0.34), 0px 1px 2px rgba(165, 165, 165, 0.11);
+    --border-round: 2em;
+    --border-radius: 10px;
+    --border-color: unset;
+    --border-style: unset;
+    --border-width: unset;
+
+    --red:    #ffadad;
+    --orange: #ffd6a5;
+    --yellow: #fdffb6;
+    --teal:   #e4f1ee;
+    --lime:   #d9edf8;
+    --mauve:  #dedaf4;
+}
+
+body {
+    font-family: 'Quicksand','Tilt Neon', sans-serif;
+    user-select: none;
+    background-color: #FBFBFB;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+input {
+    caret-color: var(--mono-nav);
+}
