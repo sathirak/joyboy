@@ -32,6 +32,17 @@ const FeatCard = ({ link, imgSrc, altName, title }) => {
 
 const Featured = () => {
 	const [PanelChange, setPanelChange] = useState(false);
+	const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
+
+	useEffect(() => {
+		const handleWindowResize = () => {
+			setIsMobile(window.innerWidth < 800);
+		};
+
+		window.addEventListener("resize", handleWindowResize);
+	
+}, []);
+
 
 	const First_Panel_FeatCard = [
 		{
@@ -105,16 +116,20 @@ const Featured = () => {
 			<div className="Featured-Title">
 				<div className="Featured-Title-Container">
 					Reserve a spot at your favorite place
-					<img src={Featured_Icon} alt="Card Name" class="Featured-Icon" />
+					<img src={Featured_Icon} alt="Card Name" className="Featured-Icon" />
 				</div>
 				<div className="Featured-Title-Line"></div>
 			</div>
 			<div className="Featured-Container">
-				{PanelChange ? (
+
+				{isMobile ? null : 
+				(PanelChange ? (
 					<img src={Arrow_Backward} alt="Backwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(false)} />
 				) : (
 					<img src={Arrow_Backward} className="Featured-Arrow" style={{ opacity: 0 }} />
-				)}
+				))
+				
+}
 
 				<div className="Featured-Inner">
 					<div className="Featured-Panel" style={{transform: PanelChange ? "translateX(-100%)" : "translateX(0%)" }}>
@@ -123,24 +138,28 @@ const Featured = () => {
 							{First_Panel_FeatCard.map((card) => (
 								<FeatCard key={card.key} link={card.link} imgSrc={card.img} altName={card.key} title={card.title} />
 							))}
-							<img src={Arrow_Forward} alt="Forwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(true)} />
+							{isMobile ? 
+							(<img src={Arrow_Forward} alt="Forwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(true)} />) : null }
 						</div>
 						<div className="Featured-Panel-Sub">
 							{Second_Panel_FeatCard.map((card) => (
 								<FeatCard key={card.key} link={card.link} imgSrc={card.img} altName={card.key} title={card.title} />
 							))}
-							<img src={Arrow_Backward} alt="Backwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(false)} />
+							{isMobile ?
+							(<img src={Arrow_Backward} alt="Backwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(false)} />) :	null }
 						</div>
 
 					</div>
 
 				</div>
 
-				{PanelChange ? (
+				{isMobile ? null : 
+				(PanelChange ? (
 					<img src={Arrow_Forward} className="Featured-Arrow" style={{ opacity: 0 }} />
 				) : (
 					<img src={Arrow_Forward} alt="Forwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(true)} />
-				)}
+				))
+			}
 			</div>
 		</section>
 	);

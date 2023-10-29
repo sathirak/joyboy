@@ -34,7 +34,7 @@
 }
 
 .Spotlight-Spacer {
-	height: calc(55px + 4.4em);
+	height: calc(105px + 2vw);
 	width: 100%;
 }
 /* Inner Section */

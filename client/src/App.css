@@ -51,6 +51,7 @@
 
 body {
     font-family: 'Quicksand','Tilt Neon', sans-serif;
+    -webkit-user-select: none;
     user-select: none;
     background-color: #FBFBFB;
     margin: 0;

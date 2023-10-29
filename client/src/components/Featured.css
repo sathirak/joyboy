@@ -81,7 +81,6 @@
 .Featured-Arrow {
     width: 2rem;
     height: 2rem;
-    -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
     transition: all 0.5s ease;
@@ -96,7 +95,7 @@
 	}
 
 	.FeatCard-Image {
-		margin: 5px;
+		margin: 0px;
 	}
 
 	.FeatCard-Title {
@@ -117,7 +116,7 @@
 .Featured-Spacer {
 	position: relative;
 	width: 100%;
-	height: calc(17px + 4.4em);
+	height: calc(40px + 0.4em);
 }
 
 .Featured-Title {
@@ -203,12 +202,19 @@
 @media only screen and (max-width: 800px) {
 
 	.Featured-Inner {
-		width: calc(298px + 12vw);
+		width: calc(270px + 12vw);
 	}
 
 	.Featured-Panel-Sub {
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(2, 1fr);
+	}
+
+	.Featured-Title {
+		width: 100%;
+		font-size: 14px;
+		flex-wrap: wrap;
+		align-items: center;
 	}
 }
 
