@@ -52,6 +52,8 @@
 body {
     font-family: 'Quicksand','Tilt Neon', sans-serif;
     -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     background-color: #FBFBFB;
     margin: 0;
@@ -60,4 +62,15 @@ body {
 
 input {
     caret-color: var(--mono-nav);
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    outline: 0
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
 }
