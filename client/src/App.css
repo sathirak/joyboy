@@ -1,17 +1,7 @@
 
 @font-face {
-    font-family: 'Tilt Neon';
-    src: url('assets/fonts/Tilt_Neon/TiltNeon-Regular-VariableFont_XROT\,YROT.ttf') format('truetype');
-}
-
-@font-face {
     font-family: 'Quicksand';
     src: url('assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Young Serif';
-    src: url('assets/fonts/Young_Serif/YoungSerif-Regular.ttf') format('truetype');
 }
 
 @font-face {

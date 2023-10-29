@@ -6,6 +6,7 @@ import Navigator from "./../components/Navigator";
 import Spotlight from "./../components/Spotlight";
 import Popular from "./../components/Popular";
 import Featured from "./../components/Featured";
+import Cuisine from "./../components/Cuisine";
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
         <Spotlight />
         <Popular />
         <Featured />
+        <Cuisine />
     </div>
   );
 }

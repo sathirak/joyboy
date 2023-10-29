@@ -6,6 +6,7 @@ import Search from "../assets/icons/search.svg";
 import Account from "../assets/icons/account.png";
 
 const Navigator = () => {
+	
 	const [isSearchActive, setSearchActive] = useState(false);
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
 	const searchInputRef = useRef(null);

@@ -162,20 +162,20 @@
 }
 
 .Featured-Icon {
-	vertical-align: top;
-	flex-shrink: 0;
-	pointer-events: none;
-	vertical-align: top;
-	background-repeat: no-repeat;
-	background-size: contain;
-	width: 2rem;
-	height: 2rem;
-	-webkit-user-select: none;
-	user-select: none;
-	cursor: pointer;
-	transition: all 0.5s ease;
-	margin: 4px;
-	margin-left: 10px;
+    vertical-align: top;
+    flex-shrink: 0;
+    pointer-events: none;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 2.5rem;
+    height: 2.5rem;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    margin: 4px;
+    margin-left: 10px;
 }
 
 /* Panel Section */
