@@ -40,9 +40,7 @@ const Featured = () => {
 		};
 
 		window.addEventListener("resize", handleWindowResize);
-	
-}, []);
-
+	}, []);
 
 	const First_Panel_FeatCard = [
 		{
@@ -122,44 +120,39 @@ const Featured = () => {
 			</div>
 			<div className="Featured-Container">
 
-				{isMobile ? null : 
-				(PanelChange ? (
+				{isMobile ? null : PanelChange ? (
 					<img src={Arrow_Backward} alt="Backwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(false)} />
 				) : (
 					<img src={Arrow_Backward} className="Featured-Arrow" style={{ opacity: 0 }} />
-				))
-				
-}
+				)}
 
 				<div className="Featured-Inner">
-					<div className="Featured-Panel" style={{transform: PanelChange ? "translateX(-100%)" : "translateX(0%)" }}>
-
+					<div className="Featured-Panel" style={{ transform: PanelChange ? "translateX(-100%)" : "translateX(0%)" }}>
 						<div className="Featured-Panel-Sub">
+
 							{First_Panel_FeatCard.map((card) => (
 								<FeatCard key={card.key} link={card.link} imgSrc={card.img} altName={card.key} title={card.title} />
 							))}
-							{isMobile ? 
-							(<img src={Arrow_Forward} alt="Forwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(true)} />) : null }
+							{isMobile ? <img src={Arrow_Forward} alt="Forwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(true)} /> : null}
+
 						</div>
 						<div className="Featured-Panel-Sub">
+
 							{Second_Panel_FeatCard.map((card) => (
 								<FeatCard key={card.key} link={card.link} imgSrc={card.img} altName={card.key} title={card.title} />
 							))}
-							{isMobile ?
-							(<img src={Arrow_Backward} alt="Backwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(false)} />) :	null }
+							{isMobile ? <img src={Arrow_Backward} alt="Backwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(false)} /> : null}
+
 						</div>
-
 					</div>
-
 				</div>
 
-				{isMobile ? null : 
-				(PanelChange ? (
+				{isMobile ? null : PanelChange ? (
 					<img src={Arrow_Forward} className="Featured-Arrow" style={{ opacity: 0 }} />
 				) : (
 					<img src={Arrow_Forward} alt="Forwards Arrow" className="Featured-Arrow" onClick={() => setPanelChange(true)} />
-				))
-			}
+				)}
+
 			</div>
 		</section>
 	);
