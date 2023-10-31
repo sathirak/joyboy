@@ -13,6 +13,10 @@
 
 .CuisineCard-Container:hover {
 	transform: scale(1.03);
+
+	.CuisineCard-Image {
+		box-shadow: var(--box-hover);
+	}
 }
 
 .CuisineCard-Image {
@@ -22,7 +26,7 @@
 	transition: background-image 0.4s ease;
 	border-radius: var(--border-radius);
 	transition: all 0.2s ease;
-	box-shadow: var(--shadow);
+	box-shadow: var(--box-shadow);
 	width: calc(100px + 4vw);
 	height: calc(220px + 4vw);
 	object-fit: cover;

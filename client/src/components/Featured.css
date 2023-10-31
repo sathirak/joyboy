@@ -31,7 +31,7 @@
 	}
 
 	.FeatCard-Image {
-		box-shadow: var(--box-shadow);
+		box-shadow: var(--box-hover);
 	}
 }
 
@@ -42,7 +42,6 @@
 	transition: background-image 0.4s ease;
 	border-radius: var(--border-radius);
 	transition: all 0.2s ease;
-	box-shadow: var(--shadow);
 	width: calc(80px + 4vw);
 	height: calc(80px + 4vw);
 	object-fit: cover;
