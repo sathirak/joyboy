@@ -7,7 +7,7 @@ const Card = () => {
         
 		<article className="Card">
 			<div className="Card-Container">
-				<img src={Card_Face} alt="Card Name" class="Card-Image" />
+				<img src={Card_Face} alt="Card Name" className="Card-Image" />
                 <div className="Card-Title">
                     Placeholder Name
                     <div className="Card-Location">

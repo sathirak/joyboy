@@ -83,7 +83,7 @@ const Navigator = () => {
 							id="Search-Input"
 							type="text"
 							spellCheck="false"
-							placeholder="Search Your Favourite Places..."
+							placeholder="I'm looking for..."
 						/>
 					</div>
 
