@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
 import Cuisine_Icon from "../assets/icons/cuisine.svg";
-import More from "../assets/icons/see_more.svg";
 import "./../components/Cuisine.css";
 
 import Pizza from './../assets/images/cuisine/pizza.jpg';
@@ -78,8 +77,7 @@ const Cuisine = () => {
 				</div>
 
                 <div className="Cuisine-More-Container">
-                    See More
-                    <img src={More} alt="See More" className="Cuisine-More" />
+                  <div className="Cuisine-More">Food &gt;&gt;</div>
                 </div>
 
 			</div>

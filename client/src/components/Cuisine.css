@@ -17,6 +17,10 @@
 	.CuisineCard-Image {
 		box-shadow: var(--box-hover);
 	}
+
+	.CuisineCard-Title {
+		transform: var(--enlarge);
+	}
 }
 
 .CuisineCard-Image {
@@ -126,16 +130,25 @@
 }
 
 .Cuisine-More {
-	vertical-align: top;
-	flex-shrink: 0;
-	vertical-align: top;
-	background-repeat: no-repeat;
-	background-size: contain;
-	width: 2rem;
-	height: 2rem;
-	-webkit-user-select: none;
-	user-select: none;
-	transition: all 0.5s ease;
-	margin: 4px;
-	margin-left: 10px;    
+    vertical-align: top;
+    flex-shrink: 0;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: max-content;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: var(--transition);
+    margin: 4px;
+    margin-left: 10px;
+    padding: 12px;
+	letter-spacing: 1px;
+    background-color: var(--brand);
+    color: var(--mono-smoke);
+    border-radius: var(--border-radius);
+}
+
+.Cuisine-More:hover {
+	background-color: var(--brand-active);
+	transform: var(--enlarge);
 }
