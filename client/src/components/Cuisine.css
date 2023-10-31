@@ -2,6 +2,7 @@
 .CuisineCard-Container {
     margin: 10px;
     transition: var(--transition);
+    transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,6 +49,17 @@
     position: relative;
 }
 
+/* Responsive Section */
+
+@media only screen and (max-width: 800px) {
+ .CuisineCard-Image {
+        margin: 5px;
+    }
+
+	.CuisineCard-Title {
+        font-size: 12px;
+    }
+}
 .Cuisine {
 	position: relative;
 	display: flex;
@@ -150,5 +162,12 @@
 
 .Cuisine-More:hover {
 	background-color: var(--brand-active);
-	transform: var(--enlarge);
+	transform: var(--enlarge);}
+@media only screen and (max-width: 800px) {
+	.Cuisine-Title {
+		width: 100%;
+		font-size: 14px;
+		flex-wrap: wrap;
+		align-items: center;
+    }
 }

@@ -94,7 +94,6 @@
 	background-size: contain;
 	width: 28px;
 	height: 28px;
-	user-select: none;
 	cursor: pointer;
 	transition: var(--transition);
 }
@@ -121,7 +120,8 @@
     border: none;
     background-color: var(--mono-smoke);
     outline: none;
-    font-family: 'Tilt Neon', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+	font-weight: 500;
     font-size: 17px;
     transition: all 0.3s ease;
 
