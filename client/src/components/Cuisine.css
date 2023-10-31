@@ -1,7 +1,7 @@
 
 .CuisineCard-Container {
     margin: 10px;
-    transition: all 0.4s ease;
+    transition: var(--transition);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,7 @@
 }
 
 .CuisineCard-Container:hover {
-	transform: scale(1.03);
+	transform: var(--enlarge);
 
 	.CuisineCard-Image {
 		box-shadow: var(--box-hover);
@@ -33,7 +33,7 @@
 }
 
 .CuisineCard-Title {
-    transition: all 0.4s ease;
+    transition: var(--transition);
     font-weight: bold;
     font-size: 19px;
     text-align: left;
@@ -65,7 +65,7 @@
 }
 
 .Cuisine-Title {
-	transition: all 0.4s ease;
+	transition: var(--transition);
 	font-weight: bold;
 	font-size: 16px;
 	text-align: left;
@@ -117,7 +117,7 @@
 .Cuisine-More-Container {
     display: flex;
     align-items: center;
-    transition: all 0.4s ease;
+    transition: var(--transition);
     font-weight: bold;
     font-size: 16px;
     color: var(--mono-tar);

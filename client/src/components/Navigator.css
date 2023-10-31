@@ -14,7 +14,7 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	transition: all 0.5s ease;
+	transition: var(--transition);
 }
 
 .Navigator-Container {
@@ -63,7 +63,7 @@
 	-webkit-user-select: none;
 	user-select: none;
 	cursor: pointer;
-	transition: all 0.5s ease;
+	transition: var(--transition);
 }
 
 .Navigator-Logo-Wrapper {
@@ -71,7 +71,8 @@
 }
 
 .Navigator-Logo-Wrapper:hover {
-	transform: rotate(360deg);
+	transform: rotate(360deg), var(--enlarge);
+	
 }
 
 .Navigator-Title {
@@ -95,7 +96,7 @@
 	height: 28px;
 	user-select: none;
 	cursor: pointer;
-	transition: all 0.5s ease;
+	transition: var(--transition);
 }
 
 .Navigator-Search-Wrapper {
@@ -103,7 +104,7 @@
 	padding: 0.1rem;
 	border-radius: var(--border-round);
 	margin-right: 0.1rem;
-	transition: all 0.5s ease;
+	transition: var(--transition);
 }
 
 .Navigator-Search-Wrapper:hover {
@@ -169,7 +170,7 @@
 	margin: 1rem;
 	border-radius: var(--border-round);
 	cursor: pointer;
-	transition: all 0.5s ease;
+	transition: var(--transition);
 }
 
 .Navigator-Account-Wrapper:hover {
@@ -226,7 +227,7 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	transition: all 0.5s ease;
+	transition: var(--transition);
 }
 
 .Navigator-Container-Ext {

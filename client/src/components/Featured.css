@@ -9,7 +9,7 @@
 
 .FeatCard-Container {
 	margin: 10px;
-	transition: all 0.4s ease;
+	transition: var(--transition);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -31,6 +31,7 @@
 	}
 
 	.FeatCard-Image {
+		transform: var(--enlarge);
 		box-shadow: var(--box-hover);
 	}
 }
@@ -48,7 +49,7 @@
 }
 
 .FeatCard-Title {
-	transition: all 0.4s ease;
+	transition: var(--transition);
 	font-weight: bold;
 	font-size: 14px;
 	text-align: left;
@@ -57,7 +58,7 @@
 }
 
 .FeatCard-Location {
-	transition: all 0.4s ease;
+	transition: var(--transition);
 	width: 100%;
 	font-weight: bold;
 	font-size: 12px;
@@ -133,7 +134,7 @@
 }
 
 .Featured-Title {
-	transition: all 0.4s ease;
+	transition: var(--transition);
 	font-weight: bold;
 	font-size: 16px;
 	text-align: left;
@@ -187,7 +188,7 @@
 }
 
 .Featured-Inner {
-	transition: all 0.4s ease;
+	transition: var(--transition);
 	width: calc(600px + 20vw);
 	overflow-x: hidden;
 }
