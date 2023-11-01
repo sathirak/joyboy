@@ -49,6 +49,7 @@ const Navigator = () => {
 	return (
 
 		<section className="Navigator">
+			<div className="Navigator-Brim"></div>
 			<div className="Navigator-Bar">
 				<div className="Navigator-Container">
 

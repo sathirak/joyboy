@@ -22,9 +22,44 @@
 .Popular-Spacer {
 	height: calc(25px + 3.8em);
 	width: 100%;
+    background-color: var(--brand-background);
+}
+
+.Popular-Over {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 35px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    background-color: var(--brand-background);
+}
+
+.Popular-Slogan {
+	color: var(--mono-title);
+	font-size: 1rem;
+	font-weight: 700;
+	text-align: center;
+	transition: var(--transition);
+	width: 26vw;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 @media only screen and (max-width: 800px) {
+
+    .Popular-Slogan {
+		width: 50vw;
+	}
+
+	.Popular-Over {
+		width: 100%;
+		justify-content: center;
+	}
 
 	.Popular-Inner {
 		grid-template-columns: repeat(2, 1fr);

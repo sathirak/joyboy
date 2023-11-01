@@ -3,37 +3,8 @@ import "./../components/Spotlight.css";
 import Cover from "./../assets/images/tangalle_2.jpg";
 import Spotlight_Icon from "../assets/icons/blog.svg";
 
-const slogans1 = ["Explore New Worlds", "Discover Treasures", "Embark on Adventures"];
-const slogans2 = ["Enjoy Delicacies", "Savor Local Cuisine", "Taste the World"];
-const slogans3 = ["Share Endless Experiences", "Create Lasting Memories", "Connect with Cultures"];
-
 const Spotlight = () => {
-
-	const [currentSloganIndex1, setCurrentSloganIndex1] = useState(0);
-	const [currentSloganIndex2, setCurrentSloganIndex2] = useState(0);
-	const [currentSloganIndex3, setCurrentSloganIndex3] = useState(0);
-
-	const updateSlogan = (sloganIndex, setSloganIndex, slogans) => {
-		setSloganIndex((sloganIndex + 1) % slogans.length);
-	};
-
-	useEffect(() => {
-		const sloganRotationInterval = setInterval(() => {
-
-			updateSlogan(currentSloganIndex1, setCurrentSloganIndex1, slogans1);
-			updateSlogan(currentSloganIndex2, setCurrentSloganIndex2, slogans2);
-			updateSlogan(currentSloganIndex3, setCurrentSloganIndex3, slogans3);
-
-		}, 3500);
-
-		return () => {
-			clearInterval(sloganRotationInterval);
-		};
-
-	}, [currentSloganIndex1, currentSloganIndex2, currentSloganIndex3]);
-
 	return (
-		
 		<section className="Spotlight">
 			<div className="Spotlight-Spacer"></div>
 			<div className="Spotlight-Container">
@@ -47,9 +18,8 @@ const Spotlight = () => {
 						</div>
 					</div>
 					<div className="Spotlight-Under">
-            
 						<div id="Slogan-1" className="Spotlight-Slogan">
-							{slogans1[currentSloganIndex1]}
+							Explore New Worlds
 						</div>
 
 						<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
@@ -57,7 +27,7 @@ const Spotlight = () => {
 						</svg>
 
 						<div id="Slogan-2" className="Spotlight-Slogan">
-							{slogans2[currentSloganIndex2]}
+							Enjoy Delicacies
 						</div>
 
 						<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
@@ -65,9 +35,8 @@ const Spotlight = () => {
 						</svg>
 
 						<div id="Slogan-3" className="Spotlight-Slogan">
-							{slogans3[currentSloganIndex3]}
+							Share Endless Experiences
 						</div>
-
 					</div>
 				</div>
 			</div>

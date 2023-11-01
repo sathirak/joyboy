@@ -39,8 +39,8 @@
 	border-radius: var(--border-radius);
 	transition: all 0.2s ease;
 	box-shadow: var(--shadow);
-	width: calc(123px + 4vw);
-	height: calc(123px + 4vw);
+	width: clamp( 200px, 16vw, 40vw);
+	height: clamp( 200px, 16vw, 40vw);
 	object-fit: cover;
 }
 
@@ -74,7 +74,6 @@
 	background-size: contain;
 	width: 1rem;
 	height: 1rem;
-	user-select: none;
 	cursor: pointer;
 	transition: all 0.5s ease;
 	margin: 4px;

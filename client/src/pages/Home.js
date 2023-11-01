@@ -12,7 +12,6 @@ function Home() {
   return (
     <div className="Home">
         <Navigator />
-        <Spotlight />
         <Popular />
         <Featured />
         <Cuisine />

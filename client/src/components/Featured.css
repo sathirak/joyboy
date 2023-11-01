@@ -23,6 +23,7 @@
 	.FeatCard-Title {
 		color: var(--brand-active);
 		text-shadow: var(--text-shadow);
+		transform: var(--enlarge);
 	}
 
 	.FeatCard-Location {
@@ -109,13 +110,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-
-.Featured:hover {
-	.Featured-Icon {
-		animation: float 3s infinite;
-		animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
-	}
 }
 
 .Featured-Spacer {
@@ -226,14 +220,4 @@
 	}
 }
 
-/* Animations Section */
 
-@keyframes float {
-	0%,
-	100% {
-		transform: translateY(3px);
-	}
-	50% {
-		transform: translateY(-3px);
-	}
-}

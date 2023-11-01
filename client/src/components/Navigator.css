@@ -6,6 +6,13 @@
 	z-index: 10;
 }
 
+.Navigator-Brim {
+	height: 0.2em;
+	width: 100%;
+	background-color: var(--brand-link);
+	position: fixed;
+}
+
 .Navigator-Bar {
 	position: fixed;
 	width: 100vw;
@@ -71,7 +78,7 @@
 }
 
 .Navigator-Logo-Wrapper:hover {
-	transform: rotate(360deg), var(--enlarge);
+	transform: rotate(360deg) var(--enlarge);
 	
 }
 
