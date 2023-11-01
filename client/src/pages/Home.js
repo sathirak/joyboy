@@ -3,10 +3,10 @@ import "./../Joyboy-UI.css";
 import "./../Joyboy-Layout.css";
 import "./../Joyboy-Ani.css";
 import Navigator from "./../components/Navigator";
-import Spotlight from "./../components/Spotlight";
 import Popular from "./../components/Popular";
 import Featured from "./../components/Featured";
 import Cuisine from "./../components/Cuisine";
+import Explore from "./../components/Explore";
 
 function Home() {
   return (
@@ -15,6 +15,7 @@ function Home() {
         <Popular />
         <Featured />
         <Cuisine />
+        <Explore />
     </div>
   );
 }
