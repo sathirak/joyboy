@@ -42,6 +42,10 @@
     --mauve: #9575CD;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Quicksand','Tilt Neon', sans-serif;
     -webkit-user-select: none;

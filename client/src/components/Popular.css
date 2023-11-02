@@ -11,16 +11,17 @@
 
 .Popular-Inner {
     display: grid;
-	grid-template-columns: repeat(4, 1fr);
-    justify-content: center;
-    align-content: center;
-    justify-items: center;
-    width: max-content;
     transition: var(--transition);
+    grid-template-columns: repeat(auto-fill, minmax(clamp(130px, 18vw, 250px), 1fr));
+    row-gap: 2vw;
+    column-gap: 2vw;
+    width: 89.5vw;
+    justify-items: center;
 }
 
+
 .Popular-Spacer {
-	height: calc(25px + 3.8em);
+	height: clamp(100px, 22vh, 240px);
 	width: 100%;
     background-color: var(--brand-background);
 }
@@ -41,7 +42,7 @@
 
 .Popular-Slogan {
 	color: var(--mono-title);
-	font-size: 1rem;
+	font-size: clamp(8px, 2.3vw, 19px);
 	font-weight: 700;
 	text-align: center;
 	transition: var(--transition);
@@ -61,8 +62,5 @@
 		justify-content: center;
 	}
 
-	.Popular-Inner {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
 }
+

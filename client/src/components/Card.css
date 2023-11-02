@@ -32,16 +32,16 @@
 }
 
 .Card-Image {
-	-webkit-user-select: none;
-	margin: 10px;
-	user-select: none;
-	transition: background-image 0.3s ease 0s;
-	border-radius: var(--border-radius);
-	transition: all 0.2s ease;
-	box-shadow: var(--shadow);
-	width: clamp( 200px, 16vw, 40vw);
-	height: clamp( 200px, 16vw, 40vw);
-	object-fit: cover;
+    -webkit-user-select: none;
+    margin: clamp(2px, 3px, 10px);
+    user-select: none;
+    transition: background-image 0.3s ease 0s;
+    border-radius: var(--border-radius);
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+    width: clamp( 130px, 18vw, 250px);
+    height: clamp( 130px, 18vw, 250px);
+    object-fit: cover;
 }
 
 .Card-Title {

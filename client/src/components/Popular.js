@@ -25,7 +25,7 @@ const Popular = () => {
 					</svg>
 
 					<div id="Slogan-3" className="Popular-Slogan">
-						Share Endless Experiences
+						Experience Culture
 					</div>
 				</div>
 				<div className="Popular-Inner">
@@ -33,8 +33,6 @@ const Popular = () => {
 					<Card />
 					<Card />
 					<Card />
-				</div>
-				<div className="Popular-Inner">
 					<Card />
 					<Card />
 					<Card />
