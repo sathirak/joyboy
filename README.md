@@ -1,2 +1,3 @@
 # joyboy
-An app to do stuff
+
+An app to do stuff. Literally.
