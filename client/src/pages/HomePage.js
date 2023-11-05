@@ -3,7 +3,7 @@ import Navigator from '../components/Navigator/Navigator';
 
 function HomePage() {
   return (
-    <div>
+    <div id='HomePage'>
         <Navigator />
     </div>
   );
