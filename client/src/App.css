@@ -24,11 +24,13 @@
 	--text-shadow: 0px 2px 6px rgba(172, 172, 172, 0.34), 0px 1px 2px rgba(165, 165, 165, 0.11);
 	--enlarge: scale(1.05);
 	--transition: all 0.4s ease;
-	--border-round: 2em;
+	--border-round: 999px;
 	--border-radius: 10px;
 	--border-color: unset;
 	--border-style: unset;
 	--border-width: unset;
+
+	--speed-ui: 100ms;
 
 	--red: #f44336;
 	--orange: #ffb74d;

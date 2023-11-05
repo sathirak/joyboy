@@ -12,6 +12,9 @@
 	border-radius: var(--border-round);
 	background-color: var(--mono-bril);
 	box-shadow: var(--box-nav);
+	border-style: var(--border-style);
+	border-width: var(--border-width);
+	border-color: var(--border-color);
 	margin: 10px 3px 0px 3px;
 	padding: 0px 4px 0px 4px;
 	display: flex;
@@ -54,7 +57,7 @@
 }
 
 .Nav-Link {
-	font-size: clamp(10px, 12px, 20px);
+	font-size: clamp(10px, 2.6vh, 20px);
 	font-weight: bold;
 	color: var(--mono-ui);
 	padding: 5px;
@@ -100,7 +103,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .Nav-Left-enter-active {
 	transform: translateX(-110%);
-	transition: all 100ms ease;
+	transition: all var(--speed-ui) ease;
 }
 
 .Nav-Left-exit {
@@ -109,7 +112,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .Nav-Left-exit-active {
 	transform: translateX(-110%);
-	transition: all 100ms ease;
+	transition: all var(--speed-ui) ease;
 }
 
 
@@ -119,7 +122,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .Nav-Right-enter-active {
 	transform: translateX(110%);
-	transition: all 100ms ease;
+	transition: all var(--speed-ui) ease;
 }
 
 .Nav-Right-exit {
@@ -129,7 +132,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .Nav-Right-exit-active {
 	transform: translateX(110%);
-	transition: all 100ms ease;
+	transition: all var(--speed-ui) ease;
 }
 
 div{
