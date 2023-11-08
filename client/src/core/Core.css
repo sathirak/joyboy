@@ -1,25 +1,138 @@
-.App {
-    text-align: center;
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    padding: 20px;
-    color: white;
-  }
-  
-  .dashboard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-  }
-  
-  .widget {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 4px;
-  }
-  
+.dark {
+    --brand: azure;
+	--pri: #f5f5f5;
+	--tri: #2d3748;
+	--sec: #2d3748;
+}
+
+.light {
+    --brand: azure;
+	--pri: #2d3748;
+	--tri: #2d3748;
+	--sec: #f5f5f5;
+}
+
+body {
+	color: var(--sec);
+}
+
+.Core {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+}
+
+.Core ul {
+	list-style-type: disclosure-closed;
+    margin-inline-start: 10px;
+}
+
+.Content {
+	flex: 1;
+	min-height: 100vh;
+	background-color: var(--sec);
+	color: var(--pri);
+	padding: 10px;
+}
+
+.Sidebar {
+	width: clamp(200px, 15vw, 300px);
+	min-height: 100vh;
+	background-color: var(--pri);
+	color: var(--sec);
+	border-radius: 0 10px 10px 0;
+}
+
+.Sidebar-Inner {
+	padding: 10px;
+}
+
+.Sidebar-Links {
+	padding: 10px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.Core-Button {
+	margin: 10px;
+	display: inline-block;
+	padding: 10px 20px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	background-color: var(--pri);
+	color: var(--sec);
+	border: none;
+	border-radius: 0.375rem;
+	font-size: 1rem;
+	font-weight: 500;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.Core-Button:hover {
+	background-color: var(--sec);
+    color: var(--pri);
+}
+
+.Core-Button:focus {
+	outline: none;
+	box-shadow: 0 0 0 1px #a0aec0, 0 0 0 3px #cbd5e0; /* Focus styles */
+}
+
+.Core-Tabs {
+    font-weight: 600;
+	color: var(--pri);
+	padding: 5px;
+	border-radius: 0.375rem;
+	width: max-content;
+	text-decoration: underline;
+}
+
+.Table {
+	display: block;
+	border: 1px solid var(--pri);
+	color: var(--sec);
+	font-size: 12px;
+	user-select: text;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.Table-Header {
+	display: flex;
+	background-color: var(--pri);
+	border-bottom: 1px solid var(--pri);
+	font-weight: bold;
+}
+
+.Table-Header-Cell {
+	padding: 8px;
+	flex: 1;
+	text-align: center;
+}
+
+.Table-Rows {
+	display: block;
+}
+
+.Table-Row {
+	display: flex;
+	border-top: 1px solid var(--pri);
+}
+
+.Table-Cell {
+	padding: 8px;
+	flex: 1;
+	text-align: center;
+	color: var(--tri);
+}
+
+.Table-Cell a {
+	color: inherit;
+	text-decoration: none;
+	color: var(--pri);
+}
+
+

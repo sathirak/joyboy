@@ -34,6 +34,7 @@
 	align-items: center;
     position: relative;
     overflow: hidden;
+	will-change: transform;
 }
 
 .Nav-Icon {
