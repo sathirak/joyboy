@@ -1,30 +1,26 @@
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'Master',
-  password: '8c7$Z9pW@q1',
-  database: 'Homepage',
-});
 
-function connectWire() {
-    return new Promise((resolve, reject) => {
-      connection.connect((err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve('Connected to MySQL');
-        }
-      });
+const dbConfig = {
+  host: "localhost",
+  user: "Master",
+  password: "8c7$Z9pW@q1",
+  database: "Homepage",
+};
+
+const pool = mysql.createPool(dbConfig);
+
+
+const getConnection = () => {
+  return new Promise((resolve, reject) => {
+    pool.getConnection((err, connection) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(connection);
     });
-  }
-  
-  function disconnectWire() {
-    connection.end();
-  }
-  
-  module.exports = {
-    connectWire,
-    disconnectWire,
-    connection,
-  };
+  });
+};
+
+module.exports = getConnection;
