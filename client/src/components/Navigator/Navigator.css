@@ -63,7 +63,7 @@
 }
 
 .Nav-Link {
-	font-size: clamp(10px, 2.6vw, 15px);
+	font-size: clamp(10px, 2.6vh, 16px);
 	font-weight: bold;
 	color: var(--mono-ui);
 	padding: 5px;
