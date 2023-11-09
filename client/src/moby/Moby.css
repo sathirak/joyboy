@@ -29,15 +29,15 @@ body {
 }
 
 .Logo img {
-	width: 80px;
-	height: 80px;
+	width: 60px;
+	height: 60px;
 }
 
 .Logo-Border {
 	border-color: transparent;
     border: 5px dashed ;
     border-radius: 50%;
-    margin: 20px;
+    margin: 10px;
     padding: 2px;
 }
 
@@ -101,9 +101,8 @@ body {
 }
 
 .Sidebar-Icon {
-    width: 30px;
-    height: 30px;
-    margin: 5px;
+    width: 20px;
+    height: 20px;
 }
 
 .Sidebar-Icon path {
