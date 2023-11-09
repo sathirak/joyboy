@@ -106,7 +106,7 @@ function Breadboard() {
 			)}
 
 			{selectedTable && <TableDetails tableName={selectedTable} />}
-			<div className="Core-Button" onClick={handleShowTables}>
+			<div className="Moby-Button" onClick={handleShowTables}>
 				Tables!
 			</div>
 		</div>

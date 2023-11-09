@@ -1,12 +1,13 @@
+
 .dark {
-    --brand: azure;
+    --moby-brand: #5ebdbd;
 	--pri: #f5f5f5;
 	--tri: #2d3748;
 	--sec: #2d3748;
 }
 
 .light {
-    --brand: azure;
+    --moby-brand: #5ebdbd;
 	--pri: #2d3748;
 	--tri: #2d3748;
 	--sec: #f5f5f5;
@@ -16,15 +17,43 @@ body {
 	color: var(--sec);
 }
 
-.Core {
+.Logo {
+    background-color: #E0F7FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 999px;
+    width: max-content;
+    margin: 2px;
+}
+
+.Logo img {
+	width: 80px;
+	height: 80px;
+}
+
+.Logo-Border {
+	border-color: transparent;
+    border: 5px dashed ;
+    border-radius: 50%;
+    margin: 20px;
+    padding: 2px;
+}
+
+.Moby {
 	display: flex;
 	flex-direction: row;
 	align-items: stretch;
 }
 
-.Core ul {
+.Moby ul {
 	list-style-type: disclosure-closed;
     margin-inline-start: 10px;
+}
+
+.Moby h1{
+    margin-left: 10px;
 }
 
 .Content {
@@ -36,7 +65,7 @@ body {
 }
 
 .Sidebar {
-	width: clamp(200px, 15vw, 300px);
+	width: max-content;
 	min-height: 100vh;
 	background-color: var(--pri);
 	color: var(--sec);
@@ -44,16 +73,44 @@ body {
 }
 
 .Sidebar-Inner {
-	padding: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Sidebar-Links {
 	padding: 10px;
-	font-weight: 500;
+	margin: 7px;
+	border-radius: 999px;
+	width: max-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	cursor: pointer;
+	transition: all 0.2s ease;
 }
 
-.Core-Button {
+.Selected {
+    transform: scale(1.2);
+	background-color: var(--moby-brand);
+}
+
+.Selected img {
+	filter: brightness(1.5);
+}
+
+.Sidebar-Icon {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+.Sidebar-Icon path {
+	fill: var(--sec);
+}
+
+.Moby-Button {
 	margin: 10px;
 	display: inline-block;
 	padding: 10px 20px;
@@ -71,17 +128,17 @@ body {
 	transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.Core-Button:hover {
+.Moby-Button:hover {
 	background-color: var(--sec);
     color: var(--pri);
 }
 
-.Core-Button:focus {
+.Moby-Button:focus {
 	outline: none;
 	box-shadow: 0 0 0 1px #a0aec0, 0 0 0 3px #cbd5e0; /* Focus styles */
 }
 
-.Core-Tabs {
+.Moby-Tabs {
     font-weight: 600;
 	color: var(--pri);
 	padding: 5px;
@@ -136,3 +193,9 @@ body {
 }
 
 
+/* Moby Component Styles */
+
+.M-Heading {
+	margin: 10px;
+	width: max-content;
+}
