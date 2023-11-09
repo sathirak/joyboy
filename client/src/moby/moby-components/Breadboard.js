@@ -87,9 +87,14 @@ function Breadboard() {
 		}
 	};
 
+	handleShowTables();
+
 	const handleTableClick = (tableName) => {
 		setSelectedTable(tableName);
 	};
+
+
+		
 
 	return (
 		<div>
@@ -106,9 +111,6 @@ function Breadboard() {
 			)}
 
 			{selectedTable && <TableDetails tableName={selectedTable} />}
-			<div className="Moby-Button" onClick={handleShowTables}>
-				Tables!
-			</div>
 		</div>
 	);
 }

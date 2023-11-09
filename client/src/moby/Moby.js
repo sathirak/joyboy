@@ -41,7 +41,7 @@ function Moby() {
 
   return (
 
-    <div className="Moby light">
+    <div className="Moby">
       <div className="Sidebar">
         <div className="Logo-Border" style={{borderColor: activeLink === "Settings" ? "var(--moby-brand)" : 'transparent',}}>
           <div className="Logo" onClick={toggle_settings}>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Spotlight.css";
-import Module from "../Module/Module";
+import Element from "../Element/Element";
 
 const data = ["123456-ds","123453-ev","123451-fd"];
 
@@ -9,7 +9,7 @@ function Spotlight() {
 	return (
 	  <section className="Spotlight">
 		{data.map((item, index) => (
-		  <Module key={index} joydex={item} size="small" text="Small Card Content" />
+		  <Element key={index} joydex={item} type="Spotlight" subtype="Unfocused" component="Spotlight" />
 		))}
 	  </section>
 	);

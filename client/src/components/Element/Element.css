@@ -1,0 +1,8 @@
+
+.Error {
+    background-color: var(--orange);
+    padding: 10px;
+    margin: 10px;
+    width: max-content;
+    border-radius: var(--border-radius);
+}
