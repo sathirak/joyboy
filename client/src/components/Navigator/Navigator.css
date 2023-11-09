@@ -1,4 +1,9 @@
 
+
+#Nav div{
+    transition: all 200ms ease;
+}
+
 .Nav-Outer {
 	position: fixed;
 	width: 100vw;
@@ -58,7 +63,7 @@
 }
 
 .Nav-Link {
-	font-size: clamp(10px, 2.6vh, 20px);
+	font-size: clamp(10px, 2.6vw, 15px);
 	font-weight: bold;
 	color: var(--mono-ui);
 	padding: 5px;
@@ -136,6 +141,3 @@ input[type="search"]::-webkit-search-cancel-button {
 	transition: all var(--speed-ui) ease;
 }
 
-div{
-    transition: all 150ms ease;
-}

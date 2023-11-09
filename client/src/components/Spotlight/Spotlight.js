@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "./Spotlight.css";
+import Module from "../Module/Module";
 
-function Spotlight_Module () {
+const data = ["123456-ds","123453-ev","123451-fd"];
 
-    return (
-        <article class="Spotlight-Module" >
+function Spotlight() {
 
-        </article>
-    );
-}
+	return (
+	  <section className="Spotlight">
+		{data.map((item, index) => (
+		  <Module key={index} joydex={item} size="small" text="Small Card Content" />
+		))}
+	  </section>
+	);
+	
+  }
 
-export default Spotlight_Module;
+
+
+export default Spotlight;
