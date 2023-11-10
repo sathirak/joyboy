@@ -1,14 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Food from './pages/Food';
+import HomePage from './pages/HomePage';
+import Moby from './moby/Moby';
+import './App.css';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Food" element={<Food />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/moby" element={<Moby />} />
       </Routes>
     </Router>
   );
