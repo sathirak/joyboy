@@ -33,10 +33,7 @@
 
 <div align="center">
   <div class="image-container">
-    <img src="https://github.com/sekisaii/joyboy/blob/main/client/src/moby/Moby.svg" width="80" alt="Logo"/>
-    <img src="https://github.com/sekisaii/joyboy/blob/main/client/src/moby/Moby.svg" width="80" alt="Logo"/>
-    <img src="https://github.com/sekisaii/joyboy/blob/main/client/src/moby/Moby.svg" width="80" alt="Logo"/>
-    <img src="https://github.com/sekisaii/joyboy/blob/main/client/src/moby/Moby.svg" width="80" alt="Logo"/>
+
   </div>
 </div>
 
