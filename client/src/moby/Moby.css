@@ -1,5 +1,5 @@
 :root {
-    --moby-brand: #5ebdbd;
+	--moby-brand: #5ebdbd;
 	--pri: #2d3748;
 	--tri: #2d3748;
 	--sec: #f5f5f5;
@@ -16,14 +16,14 @@ body {
 }
 
 .Logo {
-    background-color: #E0F7FA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border-radius: 999px;
-    width: max-content;
-    margin: 2px;
+	background-color: #E0F7FA;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	border-radius: 999px;
+	width: max-content;
+	margin: 2px;
 }
 
 .Logo img {
@@ -33,20 +33,20 @@ body {
 
 .Logo-Border {
 	border-color: transparent;
-    border: 5px dashed ;
-    border-radius: 50%;
-    margin: 10px;
-    padding: 2px;
+	border: 5px dashed;
+	border-radius: 50%;
+	margin: 10px;
+	padding: 2px;
 	transition: all 0.3s ease;
 }
 
 .Moby ul {
 	list-style-type: disclosure-closed;
-    margin-inline-start: 10px;
+	margin-inline-start: 10px;
 }
 
-.Moby h1{
-    margin-left: 10px;
+.Moby h1 {
+	margin-left: 10px;
 }
 
 .Content {
@@ -66,10 +66,10 @@ body {
 }
 
 .Sidebar-Inner {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .Sidebar-Links {
@@ -85,7 +85,7 @@ body {
 }
 
 .Selected {
-    transform: scale(1.2);
+	transform: scale(1.2);
 	background-color: var(--moby-brand);
 }
 
@@ -94,8 +94,8 @@ body {
 }
 
 .Sidebar-Icon {
-    width: 20px;
-    height: 20px;
+	width: 20px;
+	height: 20px;
 }
 
 .Sidebar-Icon path {
@@ -103,7 +103,7 @@ body {
 }
 
 .Moby-Tabs {
-    font-weight: 600;
+	font-weight: 600;
 	color: var(--pri);
 	padding: 5px;
 	border-radius: 0.375rem;
@@ -159,13 +159,316 @@ body {
 
 /* Moby Component Styles */
 
-.M-Container {
+.Moby {
+	--moby-font-color: #2d3748;
+	--moby-para-color: #38404e;
+	--moby-sub-color: #5d6878;
+	--moby-sub-background: #E0F7FA;
+	--moby-primary-light: #8ccfcf;
+	--moby-primary: #5ebdbd;
+	--moby-primary-dark: #3f9494;
+	--moby-success: #8cec8c;
+	--moby-warn: #fcbd60;
+	--moby-error: #ea0d67;
+	--moby-disable: #90a9a9;
+	--moby-offwhite: #ececec;
+	--moby-white: #f5f5f5;
+	--moby-complete: #5b75a3;
+	--moby-border-radius: 10px;
+	--moby-border-round: 999px;
+	--moby-ui-speed: 300ms;
+}
+
+.Moby-Container {
 	padding: 1vw;
+	width: 100%;
 	height: 100%;
+}
+
+.Moby-Container-Column {
+	display: flex;
+	flex-direction: column;
+}
+
+.Moby-Heading {
+	margin: 10px;
+	width: fit-content;
+	height: fit-content;
+	color: var(--moby-font-color);
+}
+
+.Moby-Paragraph {
+	font-size: medium;
+	font-weight: 500;
+	margin: 5px;
+	width: fit-content;
+	height: fit-content;
+	color: var(--moby-para-color);
+}
+
+.Moby-Link {
+	font-size: medium;
+	font-weight: 500;
+	font-style: oblique;
+	margin: 5px;
+	width: fit-content;
+	height: fit-content;
+	color: var(--moby-font-color);
+}
+
+.Moby-Link:visited {
+	color: var(--moby-complete);
+}
+
+.Moby-Line-Thick {
+	width: 85%;
+	height: 4px;
+	margin: 2px;
+	border-radius: var(--moby-border-round);
+	background-color: var(--moby-font-color);
+}
+
+.Moby-Line-Thin {
+	width: 85%;
+	height: 2px;
+	margin: 2px;
+	border-radius: var(--moby-border-radius);
+	background-color: var(--moby-font-color);
+}
+
+.Moby-Widget-Container {
+	background-color: var(--moby-sub-background);
+	padding: 1vw;
+	margin: 0.5vw;
+	width: fit-content;
+	height: fit-content;
+	border-radius: var(--moby-border-radius);
+}
+
+.Moby-Button {
+	width: fit-content;
+	height: fit-content;
+	cursor: pointer;
+	background-color: var(--moby-primary);
+	color: var(--moby-white);
+	font-weight: 700;
+	padding: 10px;
+	border-radius: var(--moby-border-radius);
+	margin: 5px;
+	transition: background-color var(--moby-ui-speed) ease;
+}
+
+.Moby-Button:hover {
+	background-color: var(--moby-primary-dark);
+}
+
+.Moby-Button-Disabled {
+	background-color: var(--moby-disable);
+	pointer-events: none;
+}
+
+.Moby-Spacer {
 	width: 100%;
 }
 
-.M-Heading {
+.Moby-Icon-Block {
 	margin: 10px;
-	width: max-content;
+	width: fit-content;
+	height: fit-content;
+	display: flex;
+	align-items: center;
+}
+
+.Moby-Icon-Small {
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+	margin: 5px;
+	transition: all var(--moby-ui-speed) ease;
+}
+
+
+/* Moby Tab Content */
+
+.Moby-Tab {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 10px;
+	width: fit-content;
+	height: fit-content;
+}
+
+.Moby-Tab-Link-Container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.Moby-Tab-Link {
+	color: var(--moby-sub-color);
+	font-size: medium;
+	font-weight: bold;
+	padding: 5px;
+	padding-inline-start: 3vw;
+	padding-inline-end: 3vw;
+	margin-inline-start: 1vw;
+	margin-inline-end: 1vw;
+	border-bottom: transparent 3px solid;
+	transition: all var(--moby-ui-speed) ease;
+	text-align: center;
+}
+
+.Moby-Tab-Link:hover {
+	color: var(--moby-font-color);
+	border-bottom: var(--moby-primary) 3px solid;
+}
+
+.Moby-Tab-Link-Active {
+	color: var(--moby-font-color);
+	border-bottom: var(--moby-primary) 3px solid;
+}
+
+.Moby-Tab-Content {
+	padding: 10px;
+	margin: 10px;
+	width: 100%;
+	height: 100%;
+	background-color: var(--moby-sub-background);
+	border-radius: var(--moby-border-radius);
+}
+
+/* Moby Dropdown Content */
+
+.Moby-Dropdown {
+	position: relative;
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 10px;
+}
+
+.Moby-Dropdown-Heading {
+	cursor: pointer;
+	margin-bottom: 10px;
+	width: fit-content;
+	background-color: var(--moby-primary);
+	border-radius: var(--border-radius);
+	color: var(--moby-white);
+}
+
+.Moby-Dropdown-Selected {
+	color: var(--moby-sub-color);
+	font-weight: 600;
+	margin-inline-start: 10px;
+}
+
+.Moby-Dropdown-List {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    width: 100%;
+    background-color: var(--moby-sub-background);
+    border-radius: var(--moby-border-radius);
+}
+
+.Moby-Dropdown-Option {
+	padding: 10px;
+	width: 100%;
+	padding-inline-start: 20px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	border-radius: var(--moby-border-radius);
+
+}
+
+.Moby-Dropdown-Option:hover {
+	transform: scale(1.05);
+	background-color: var(--moby-primary-light);
+	color: var(--moby-white);
+}
+
+/* Moby Popup Content */
+
+.Moby-Popup-Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--moby-sub-background);
+    opacity: 0.9;
+    background-image: radial-gradient(var(--moby-sub-color) 1px, transparent 11%);
+    background-size: 16px 16px;
+    background-attachment: fixed;
+}
+
+.Moby-Popup-Card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Moby-Popup-Close {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    background-color: var(--moby-white);
+    border-radius: var(--border-round);
+    padding: 10px;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+}
+/* Moby Alert Content */
+
+.Moby-Success {
+	background-color: var(--moby-success);
+	color: var(--moby-white);
+	padding: 10px;
+	margin: 10px;
+	border-radius: var(--moby-border-radius);
+	font-size: medium;
+	font-weight: 600;
+	width: fit-content;
+	height: fit-content;
+}
+
+.Moby-Warn {
+	background-color: var(--moby-warn);
+	color: var(--moby-white);
+	padding: 10px;
+	margin: 10px;
+	border-radius: var(--moby-border-radius);
+	font-size: medium;
+	font-weight: 600;
+	width: fit-content;
+	height: fit-content;
+}
+
+.Moby-Error {
+	background-color: var(--moby-error);
+	color: var(--moby-white);
+	padding: 10px;
+	margin: 10px;
+	border-radius: var(--moby-border-radius);
+	font-size: medium;
+	font-weight: 600;
+	width: fit-content;
+	height: fit-content;
+}
+
+.Moby-Disabled {
+	background-color: var(--moby-disable);
+	color: var(--moby-white);
+	padding: 10px;
+	margin: 10px;
+	border-radius: var(--moby-border-radius);
+	font-size: medium;
+	font-weight: 600;
+	width: fit-content;
+	height: fit-content;
 }

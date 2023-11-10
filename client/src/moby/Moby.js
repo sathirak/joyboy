@@ -21,7 +21,7 @@ function Moby() {
     
 
     if (permitted_moby_modules.includes(moby_module)) {
-      const Component = React.lazy(() => import(`./moby-components/${moby_module}`));
+      const Component = React.lazy(() => import(`./moby-modules/${moby_module}`));
       setActiveModule(<Component />);
       setActiveLink(moby_module);
     } else {
