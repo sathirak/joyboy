@@ -1,9 +1,7 @@
 
 <div align="center">
   <div class="image-container">
-    <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" width="120" alt="Logo"/>
-    <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" width="120" alt="Logo"/>
-    <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/logos/exports/1544x1544_circle.png" width="120" alt="Logo"/>
+    <img src="https://github.com/sekisaii/joyboy/blob/main/client/src/moby/Moby.svg" width="120" alt="Logo"/>
   </div>
   <h3 align="center">Joyboy</h3>
 </div>
@@ -26,4 +24,19 @@
 <p align="center">
   Joyboy is a huge project. Containing three modules. Each appleaing to a different audience. It's not three systems, it's one system. But, it's three types of modules.
 </p>
+
+<div align="center">
+  <p align="center">
+    Made with Node.js, React.js, CSS, MySQL and PHP
+  </p>
+</div>
+
+<div align="center">
+  <div class="image-container">
+    <img src="https://github.com/sekisaii/joyboy/blob/main/client/src/moby/Moby.svg" width="80" alt="Logo"/>
+    <img src="https://github.com/sekisaii/joyboy/blob/main/client/src/moby/Moby.svg" width="80" alt="Logo"/>
+    <img src="https://github.com/sekisaii/joyboy/blob/main/client/src/moby/Moby.svg" width="80" alt="Logo"/>
+    <img src="https://github.com/sekisaii/joyboy/blob/main/client/src/moby/Moby.svg" width="80" alt="Logo"/>
+  </div>
+</div>
 
