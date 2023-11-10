@@ -1,9 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from 'react';
 
+import { Dropdown, Tab, Popup, Toggle } from "../Moby_Components";
 
 
 function Template() {
+
+  const dropdownOptions = ['Option R', 'Option B', 'Option C', 'Option D', 'Option E'];
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleDropdownClick = (option) => {
+    setSelectedOption(option);
+  };
+
+  const tabs = ['Tab A', 'Tab B', 'Tab C', 'Tab D', 'Tab E'];
+  const tabContent = [
+    <div>This is the content for Tab A</div>,
+    <div>This is the content for Tab B</div>,
+    <div>This is the content for Tab C</div>,
+    <div>This is the content for Tab D</div>,
+    <div>This is the content for Tab E</div>,
+  ];
+
+
+  const [switchState, setSwitchState] = useState(false);
+
+  const handleSwitchToggle = (newState) => {
+    setSwitchState(newState);
+  };
 
   return (
     <div className='Moby Moby-Container Moby-Container-Column'>
@@ -19,7 +43,8 @@ function Template() {
         <div className='Moby-Button'>This is a button</div>
         <div className='Moby-Button Moby-Button-Disabled' aria-label='This Button is disabled'>This is a Disabled button</div>
         <h4 className='Moby-Heading'>This is a the Dropdown component</h4>
-        <Dropdown />
+        <Dropdown dropdownOptions={dropdownOptions} dropdownTitle="Dropdown Title" onOptionSelect={handleDropdownClick} />
+        <h3 className='Moby-Heading'>{selectedOption}</h3>
       </div>
       <div className='Moby-Success'>This is a success message :)</div>
       <div className='Moby-Warn'>This is a warning :|</div>
@@ -28,7 +53,7 @@ function Template() {
 
       <div className="Moby-Spacer" style={{ height: 'clamp(20px, 4vh, 50px)' }}></div>
       <h4 className='Moby-Heading'>This is a the Tab component and on top of this div there's a spacer</h4>
-      <Tab />
+      <Tab tabsData={{ tabs: tabs, content: tabContent }} />
       <div className="Moby-Spacer" style={{ height: 'clamp(50px, 8vh, 100px)' }}></div>
       <Popup
         trigger={
@@ -48,125 +73,9 @@ function Template() {
         }
         closebutton={false}
       />
+      <Toggle label="Toggle Switch" onToggle={handleSwitchToggle} onColor={"var(--moby-error)"} offColor={"var(--moby-disable)"}/>
     </div>
   );
 }
-
-function Tab() {
-
-  const [activeTab, setActiveTab] = useState(0);
-
-  const handleTabLink = (index) => {
-    setActiveTab(index);
-  };
-
-  const tabs = ['Tab A', 'Tab B', 'Tab C', 'Tab D', 'Tab E'];
-
-  return (
-    <div className='Moby-Tab'>
-      <div className='Moby-Tab-Link-Container'>
-        {tabs.map((tab, index) => (
-          <div
-            key={index}
-            className={`Moby-Tab-Link ${index === activeTab ? 'Moby-Tab-Link-Active' : ''}`}
-            onClick={() => handleTabLink(index)}
-          >
-            {tab}
-          </div>
-        ))}
-      </div>
-      <div className='Moby-Tab-Content'>
-        {tabs[activeTab] === 'Tab A' && <div>This is the content for Tab A</div>}
-        {tabs[activeTab] === 'Tab B' && <div>This is the content for Tab B</div>}
-        {tabs[activeTab] === 'Tab C' && <div>This is the content for Tab C</div>}
-        {tabs[activeTab] === 'Tab D' && <div>This is the content for Tab D</div>}
-        {tabs[activeTab] === 'Tab E' && <div>This is the content for Tab E</div>}
-      </div>
-    </div>
-  );
-}
-
-
-import Dropdown_Arrow from "../moby-icons/dropdown.svg";
-
-function Dropdown() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedDropdownOption, setSelectedDropdownOption] = useState(null);
-  const dropdownOptions = ['Option A', 'Option B', 'Option C', 'Option D', 'Option E'];
-
-  const handleDropDownOption = (dropdownOption) => {
-    setSelectedDropdownOption(dropdownOption);
-    setIsDropdownOpen(false);
-    alert(dropdownOption);
-  };
-
-  useEffect(() => {
-    function handleBodyClick(event) {
-      if (isDropdownOpen && !event.target.closest('.Moby-Dropdown')) {
-        setIsDropdownOpen(false);
-      }
-    }
-
-    document.body.addEventListener('click', handleBodyClick);
-
-    return () => {
-      document.body.removeEventListener('click', handleBodyClick);
-    };
-  }, [isDropdownOpen]);
-
-  return (
-    <div className="Moby-Dropdown">
-      <div className="Moby-Dropdown-Heading" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-        <h4 className='Moby-Icon-Block'>
-          Dropdown Title <img
-            src={Dropdown_Arrow}
-            className="Moby-Icon-Small"
-            alt="Arrow"
-            style={{ transform: isDropdownOpen ? 'rotate(-180deg)' : 'none' }}
-          />
-        </h4>
-      </div>
-      {isDropdownOpen && (
-        <div className="Moby-Dropdown-List">
-          {dropdownOptions.map((dropdownOption, index) => (
-            <div key={index} className="Moby-Dropdown-Option" onClick={() => handleDropDownOption(dropdownOption)} >
-              {dropdownOption}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-const Popup = ({ trigger, content, closebutton }) => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
-  };
-
-  return (
-    <div className="Moby-Popup">
-      <div onClick={togglePopup}>{trigger}</div>
-      {isPopupOpen && (
-        <div className="Moby-Popup-Content">
-          <div className="Moby-Popup-Overlay"></div>
-          <div className="Moby-Popup-Card">
-            {closebutton && (
-              <span className="Moby-Popup-Close" onClick={togglePopup}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#2d3748" className="Moby-Icon-Small" id="Outline" viewBox="0 0 24 24" width="512" height="512">
-                  <path d="M23.707.293h0a1,1,0,0,0-1.414,0L12,10.586,1.707.293a1,1,0,0,0-1.414,0h0a1,1,0,0,0,0,1.414L10.586,12,.293,22.293a1,1,0,0,0,0,1.414h0a1,1,0,0,0,1.414,0L12,13.414,22.293,23.707a1,1,0,0,0,1.414,0h0a1,1,0,0,0,0-1.414L13.414,12,23.707,1.707A1,1,0,0,0,23.707.293Z" />
-                </svg>
-              </span>
-            )}
-            {content}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
 
 export default Template;

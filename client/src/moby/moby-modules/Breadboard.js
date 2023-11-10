@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Dropdown, Toggle } from "../Moby_Components";
 
-function TableDetails({ tableName }) {
+function TableMaker({ tableName }) {
 	const [tableData, setTableData] = useState([]);
 
 	useEffect(() => {
@@ -28,9 +29,9 @@ function TableDetails({ tableName }) {
 
 		const headers = Object.keys(tableData[0]);
 		return (
-			<div className="Table-Header">
+			<div className="Moby-Table-Header">
 				{headers.map((header, index) => (
-					<div key={index} className="Table-Header-Cell">
+					<div key={index} className="Moby-Table-Header-Cell">
 						{header}
 					</div>
 				))}
@@ -39,14 +40,14 @@ function TableDetails({ tableName }) {
 	};
 
 	const renderTableRows = () => {
-        let cellPath = '/inspect/';
+		let cellPath = "/inspect/";
 
 		return (
-			<div className="Table-Rows">
+			<div className="Moby-Table-Rows">
 				{tableData.map((row, index) => (
-					<div key={index} className="Table-Row">
+					<div key={index} className="Moby-Table-Row">
 						{Object.values(row).map((value, subIndex) => (
-							<div key={subIndex} className="Table-Cell">
+							<div key={subIndex} className="Moby-Table-Cell">
 								<a href={cellPath + value} target="_blank">
 									{value}
 								</a>
@@ -60,8 +61,8 @@ function TableDetails({ tableName }) {
 
 	return (
 		<div>
-			<h3>{tableName}</h3>
-			<div className="Table">
+			<h3 className="Moby-Heading">{tableName}</h3>
+			<div className="Moby-Table">
 				{renderTableHeaders()}
 				{renderTableRows()}
 			</div>
@@ -70,15 +71,21 @@ function TableDetails({ tableName }) {
 }
 
 function Breadboard() {
-	const [tables, setTables] = useState([]);
 	const [selectedTable, setSelectedTable] = useState(null);
+	const [dropdownOptions, setDropdownOptions] = useState([]);
+
+	const [switchState, setSwitchState] = useState(false);
+
+	const handleSwitchToggle = (newState) => {
+		setSwitchState(newState);
+	};
 
 	const handleShowTables = async () => {
 		try {
 			const response = await fetch("http://localhost:5000/api/tables");
 			if (response.ok) {
 				const data = await response.json();
-				setTables(data);
+				setDropdownOptions(data);
 			} else {
 				console.error("Error fetching tables");
 			}
@@ -93,24 +100,16 @@ function Breadboard() {
 		setSelectedTable(tableName);
 	};
 
-
-		
-
 	return (
 		<div>
 			<h1>Breadboard</h1>
 
-			{tables.length > 0 && (
-				<ul>
-					{tables.map((tableName, index) => (
-						<li key={index} onClick={() => handleTableClick(tableName)} className="Core-Tabs">
-                            {tableName}
-						</li>
-					))}
-				</ul>
-			)}
+			<div className="Moby-Container-Row Moby-Container-Center">
+				<Dropdown dropdownOptions={dropdownOptions} dropdownTitle=" Tables" onOptionSelect={handleTableClick} />
+				<Toggle label="Edit Mode" onToggle={handleSwitchToggle} onColor={"var(--moby-brand)"} offColor={"var(--moby-disable)"} />
+			</div>
 
-			{selectedTable && <TableDetails tableName={selectedTable} />}
+			{selectedTable && <TableMaker tableName={selectedTable} />}
 		</div>
 	);
 }

@@ -16,19 +16,18 @@ body {
 }
 
 .Logo {
-	background-color: #E0F7FA;
+	background-color: #e0f7fa;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 20px;
 	border-radius: 999px;
 	width: max-content;
 	margin: 2px;
 }
 
 .Logo img {
-	width: 60px;
-	height: 60px;
+	width: 100px;
+	height: 100px;
 }
 
 .Logo-Border {
@@ -156,14 +155,13 @@ body {
 	color: var(--pri);
 }
 
-
 /* Moby Component Styles */
 
 .Moby {
 	--moby-font-color: #2d3748;
 	--moby-para-color: #38404e;
 	--moby-sub-color: #5d6878;
-	--moby-sub-background: #E0F7FA;
+	--moby-sub-background: #e0f7fa;
 	--moby-primary-light: #8ccfcf;
 	--moby-primary: #5ebdbd;
 	--moby-primary-dark: #3f9494;
@@ -190,19 +188,35 @@ body {
 	flex-direction: column;
 }
 
+.Moby-Container-Row {
+	display: flex;
+	flex-direction: row;
+}
+
+.Moby-Container-Center {
+	align-items: center;
+}
+
 .Moby-Heading {
 	margin: 10px;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 	color: var(--moby-font-color);
+}
+
+.Moby-Label {
+	margin: 5px;
+	width: max-content;
+	height: max-content;
+	color: var(--moby-para-color);
 }
 
 .Moby-Paragraph {
 	font-size: medium;
 	font-weight: 500;
 	margin: 5px;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 	color: var(--moby-para-color);
 }
 
@@ -211,8 +225,8 @@ body {
 	font-weight: 500;
 	font-style: oblique;
 	margin: 5px;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 	color: var(--moby-font-color);
 }
 
@@ -240,14 +254,14 @@ body {
 	background-color: var(--moby-sub-background);
 	padding: 1vw;
 	margin: 0.5vw;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 	border-radius: var(--moby-border-radius);
 }
 
 .Moby-Button {
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 	cursor: pointer;
 	background-color: var(--moby-primary);
 	color: var(--moby-white);
@@ -273,8 +287,8 @@ body {
 
 .Moby-Icon-Block {
 	margin: 10px;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 	display: flex;
 	align-items: center;
 }
@@ -287,6 +301,60 @@ body {
 	transition: all var(--moby-ui-speed) ease;
 }
 
+/* Moby Table Content */
+
+.Moby-Table {
+	border: 2px solid var(--moby-sub-color);
+	color: var(--moby-white);
+	font-size: 12px;
+	border-radius: 10px;
+	overflow: hidden;
+	display: table;
+	width: 100%;
+}
+
+.Moby-Table-Header {
+	background-color: var(--moby-sub-color);
+	font-weight: bold;
+	display: table-row;
+}
+
+.Moby-Table-Header-Cell {
+	padding: 8px;
+	text-align: center;
+	display: table-cell;
+}
+
+.Moby-Table-Rows {
+	display: table-row-group;
+}
+
+.Moby-Table-Row {
+	display: table-row;
+}
+
+.Moby-Table-Cell {
+	text-align: center;
+	background-color: var(--moby-white);
+	color: var(--moby-font-color);
+	display: table-cell;
+	border-radius: var(--border-radius);
+}
+
+.Moby-Table-Cell:hover {
+	color: var(--moby-para-color);
+	background-color: var(--moby-offwhite);
+}
+
+.Moby-Table-Cell a {
+	padding: 8px;
+	width: 100%;
+	height: 100%;
+	color: inherit;
+	text-decoration: none;
+	display: block;
+	cursor: crosshair;
+}
 
 /* Moby Tab Content */
 
@@ -295,8 +363,8 @@ body {
 	flex-direction: column;
 	align-items: center;
 	margin: 10px;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 }
 
 .Moby-Tab-Link-Container {
@@ -343,7 +411,7 @@ body {
 
 .Moby-Dropdown {
 	position: relative;
-	width: fit-content;
+	width: max-content;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -352,8 +420,7 @@ body {
 
 .Moby-Dropdown-Heading {
 	cursor: pointer;
-	margin-bottom: 10px;
-	width: fit-content;
+	width: max-content;
 	background-color: var(--moby-primary);
 	border-radius: var(--border-radius);
 	color: var(--moby-white);
@@ -366,12 +433,12 @@ body {
 }
 
 .Moby-Dropdown-List {
-    position: absolute;
-    z-index: 1;
-    top: 50px;
-    width: 100%;
-    background-color: var(--moby-sub-background);
-    border-radius: var(--moby-border-radius);
+	position: absolute;
+	z-index: 1;
+	top: 50px;
+	width: 100%;
+	background-color: var(--moby-sub-background);
+	border-radius: var(--moby-border-radius);
 }
 
 .Moby-Dropdown-Option {
@@ -381,7 +448,6 @@ body {
 	cursor: pointer;
 	transition: all 0.2s ease;
 	border-radius: var(--moby-border-radius);
-
 }
 
 .Moby-Dropdown-Option:hover {
@@ -393,35 +459,35 @@ body {
 /* Moby Popup Content */
 
 .Moby-Popup-Overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--moby-sub-background);
-    opacity: 0.9;
-    background-image: radial-gradient(var(--moby-sub-color) 1px, transparent 11%);
-    background-size: 16px 16px;
-    background-attachment: fixed;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--moby-sub-background);
+	opacity: 0.9;
+	background-image: radial-gradient(var(--moby-sub-color) 1px, transparent 11%);
+	background-size: 16px 16px;
+	background-attachment: fixed;
 }
 
 .Moby-Popup-Card {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .Moby-Popup-Close {
-    position: absolute;
-    right: -40px;
-    top: -40px;
-    background-color: var(--moby-white);
-    border-radius: var(--border-round);
-    padding: 10px;
-    cursor: pointer;
-    width: 45px;
-    height: 45px;
+	position: absolute;
+	right: -40px;
+	top: -40px;
+	background-color: var(--moby-white);
+	border-radius: var(--border-round);
+	padding: 10px;
+	cursor: pointer;
+	width: 45px;
+	height: 45px;
 }
 /* Moby Alert Content */
 
@@ -433,8 +499,8 @@ body {
 	border-radius: var(--moby-border-radius);
 	font-size: medium;
 	font-weight: 600;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 }
 
 .Moby-Warn {
@@ -445,8 +511,8 @@ body {
 	border-radius: var(--moby-border-radius);
 	font-size: medium;
 	font-weight: 600;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 }
 
 .Moby-Error {
@@ -457,8 +523,8 @@ body {
 	border-radius: var(--moby-border-radius);
 	font-size: medium;
 	font-weight: 600;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
 }
 
 .Moby-Disabled {
@@ -469,6 +535,35 @@ body {
 	border-radius: var(--moby-border-radius);
 	font-size: medium;
 	font-weight: 600;
-	width: fit-content;
-	height: fit-content;
+	width: max-content;
+	height: max-content;
+}
+
+/* Moby Toggle */
+
+.Moby-Toggle-Container {
+	width: 50px;
+	height: 25px;
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	padding: 2.5px;
+	margin: 5px;
+	cursor: pointer;
+}
+
+.Moby-Toggle {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: var(--moby-white);
+	transition: all var(--moby-ui-speed);
+}
+
+.Moby-Toggle.On {
+	transform: translateX(25px);
+}
+
+.Moby-Toggle.Off {
+	transform: translateX(0);
 }
