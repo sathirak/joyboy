@@ -9,7 +9,7 @@ const startup_moby_module = ["Template"];
 const icons = {};
 
 permitted_moby_modules.forEach((moby_module) => {
-  icons[moby_module] = require(`./moby-icons/${moby_module}.svg`);
+  icons[moby_module] = require(`./moby-module-icons/${moby_module}.svg`);
 });
 
 function Moby() {
