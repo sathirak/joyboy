@@ -33,7 +33,11 @@
 
 <div align="center">
   <div class="image-container">
-
+    <img src="https://github.com/sekisaii/joyboy/blob/main/README/node-js.svg" width="80" alt="Logo"/>
+    <img src="https://github.com/sekisaii/joyboy/blob/main/README/react-js.svg" width="80" alt="Logo"/>
+    <img src="https://github.com/sekisaii/joyboy/blob/main/README/php.svg" width="80" alt="Logo"/>
+    <img src="https://github.com/sekisaii/joyboy/blob/main/README/mysql.svg" width="80" alt="Logo"/>
+    <img src="https://github.com/sekisaii/joyboy/blob/main/README/css3.svg" width="80" alt="Logo"/>
   </div>
 </div>
 
