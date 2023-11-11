@@ -101,59 +101,6 @@ body {
 	fill: var(--sec);
 }
 
-.Moby-Tabs {
-	font-weight: 600;
-	color: var(--pri);
-	padding: 5px;
-	border-radius: 0.375rem;
-	width: max-content;
-	text-decoration: underline;
-}
-
-.Table {
-	display: block;
-	border: 1px solid var(--pri);
-	color: var(--sec);
-	font-size: 12px;
-	user-select: text;
-	border-radius: 10px;
-	overflow: hidden;
-}
-
-.Table-Header {
-	display: flex;
-	background-color: var(--pri);
-	border-bottom: 1px solid var(--pri);
-	font-weight: bold;
-}
-
-.Table-Header-Cell {
-	padding: 8px;
-	flex: 1;
-	text-align: center;
-}
-
-.Table-Rows {
-	display: block;
-}
-
-.Table-Row {
-	display: flex;
-	border-top: 1px solid var(--pri);
-}
-
-.Table-Cell {
-	padding: 8px;
-	flex: 1;
-	text-align: center;
-	color: var(--tri);
-}
-
-.Table-Cell a {
-	color: inherit;
-	text-decoration: none;
-	color: var(--pri);
-}
 
 /* Moby Component Styles */
 
@@ -172,9 +119,12 @@ body {
 	--moby-offwhite: #ececec;
 	--moby-white: #f5f5f5;
 	--moby-complete: #5b75a3;
+	--moby-icon-dark: #2d3748;
+	--moby-icon-light: #f5f5f5;
 	--moby-border-radius: 10px;
 	--moby-border-round: 999px;
 	--moby-ui-speed: 300ms;
+	--moby-border: ;
 }
 
 .Moby-Container {
@@ -190,7 +140,18 @@ body {
 
 .Moby-Container-Row {
 	display: flex;
-	flex-direction: row;
+}
+
+.Moby-Container-Evenly {
+	justify-content: space-evenly;
+}
+
+.Moby-Container-Around {
+	justify-content: space-around;
+}
+
+.Moby-Container-Between {
+	justify-content: space-between;
 }
 
 .Moby-Container-Center {
@@ -218,6 +179,15 @@ body {
 	width: max-content;
 	height: max-content;
 	color: var(--moby-para-color);
+}
+
+.Moby-Paragraph-Light {
+	font-size: medium;
+	font-weight: 500;
+	margin: 5px;
+	width: max-content;
+	height: max-content;
+	color: var(--moby-white);
 }
 
 .Moby-Link {
@@ -254,7 +224,7 @@ body {
 	background-color: var(--moby-sub-background);
 	padding: 1vw;
 	margin: 0.5vw;
-	width: max-content;
+	width: min-content;
 	height: max-content;
 	border-radius: var(--moby-border-radius);
 }
@@ -281,6 +251,23 @@ body {
 	pointer-events: none;
 }
 
+.Moby-Button-Special {
+	width: max-content;
+	height: max-content;
+	cursor: pointer;
+	background-color: var(--moby-white);
+	color: var(--moby-para-color);
+	font-weight: 700;
+	padding: 10px;
+	border-radius: var(--moby-border-radius);
+	margin: 5px;
+	transition: background-color var(--moby-ui-speed) ease;
+}
+
+.Moby-Button-Special:hover {
+	background-color: var(--moby-offwhite);
+}
+
 .Moby-Spacer {
 	width: 100%;
 }
@@ -293,12 +280,50 @@ body {
 	align-items: center;
 }
 
+.Moby-Icon-Dark {
+	fill: var(--moby-icon-dark);
+}
+
+.Moby-Icon-Light {
+	fill: var(--moby-icon-light);
+}
+
 .Moby-Icon-Small {
+	display: block;
 	cursor: pointer;
 	width: 15px;
 	height: 15px;
 	margin: 5px;
-	transition: all var(--moby-ui-speed) ease;
+	transition: all var(--moby-ui-speed) ease;	
+}
+
+.Moby-Icon-Medium {
+	display: block;
+	cursor: pointer;
+	width: 35px;
+	height: 35px;
+	margin: 5px;
+	transition: all var(--moby-ui-speed) ease;	
+}
+
+.Moby-Icon-Wrapper {
+	background-color: var(--moby-white);
+    border-radius: 50%;
+    margin: 10px;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.Moby-Error-Log {
+    background-color: var(--moby-warn);
+    color: var(--moby-white);
+    padding: 1vw;
+    margin: 0.5vw;
+    max-width: 50vw;
+    line-break: anywhere;
+    height: max-content;
+    border-radius: var(--moby-border-radius);
+	white-space: pre-wrap;
 }
 
 /* Moby Table Content */
@@ -314,7 +339,7 @@ body {
 }
 
 .Moby-Table-Header {
-	background-color: var(--moby-sub-color);
+	background-color: var(--moby-primary-light);
 	font-weight: bold;
 	display: table-row;
 }
@@ -339,6 +364,8 @@ body {
 	color: var(--moby-font-color);
 	display: table-cell;
 	border-radius: var(--border-radius);
+	padding: 8px;
+	cursor: crosshair;
 }
 
 .Moby-Table-Cell:hover {
@@ -346,14 +373,14 @@ body {
 	background-color: var(--moby-offwhite);
 }
 
-.Moby-Table-Cell a {
-	padding: 8px;
-	width: 100%;
-	height: 100%;
-	color: inherit;
-	text-decoration: none;
-	display: block;
-	cursor: crosshair;
+.Moby-Table-Active {
+	background-color: var(--moby-disable);
+	border-radius: var(--border-radius);
+	color: var(--moby-white);
+	font-weight: 600;
+	font-size: 13px;
+	padding: 10px;
+	margin: 5px;
 }
 
 /* Moby Tab Content */
@@ -410,20 +437,19 @@ body {
 /* Moby Dropdown Content */
 
 .Moby-Dropdown {
-	position: relative;
-	width: max-content;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	margin: 10px;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    margin: 10px;
 }
 
 .Moby-Dropdown-Heading {
 	cursor: pointer;
-	width: max-content;
 	background-color: var(--moby-primary);
 	border-radius: var(--border-radius);
 	color: var(--moby-white);
+	width: max-content;
 }
 
 .Moby-Dropdown-Selected {
@@ -434,16 +460,15 @@ body {
 
 .Moby-Dropdown-List {
 	position: absolute;
+	max-width: 400px;
 	z-index: 1;
 	top: 50px;
-	width: 100%;
 	background-color: var(--moby-sub-background);
 	border-radius: var(--moby-border-radius);
 }
 
 .Moby-Dropdown-Option {
 	padding: 10px;
-	width: 100%;
 	padding-inline-start: 20px;
 	cursor: pointer;
 	transition: all 0.2s ease;
@@ -491,6 +516,44 @@ body {
 }
 /* Moby Alert Content */
 
+.Moby-Alert {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, 0%);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.Moby-Container-Alert {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	z-index: 2;
+}
+
+.Moby-Alert-Overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: var(--moby-white);
+	opacity: 0;
+	cursor: not-allowed;
+}
+
+.Moby-Alert-Paragraph {
+	font-size: medium;
+	font-weight: 500;
+	margin: 5px;
+	max-height: 60vh;
+	overflow: auto;
+	color: var(--moby-white);
+}
+
 .Moby-Success {
 	background-color: var(--moby-success);
 	color: var(--moby-white);
@@ -499,7 +562,7 @@ body {
 	border-radius: var(--moby-border-radius);
 	font-size: medium;
 	font-weight: 600;
-	width: max-content;
+	max-width: 500px;
 	height: max-content;
 }
 
@@ -511,7 +574,7 @@ body {
 	border-radius: var(--moby-border-radius);
 	font-size: medium;
 	font-weight: 600;
-	width: max-content;
+	max-width: 500px;
 	height: max-content;
 }
 
@@ -523,7 +586,7 @@ body {
 	border-radius: var(--moby-border-radius);
 	font-size: medium;
 	font-weight: 600;
-	width: max-content;
+	max-width: 500px;
 	height: max-content;
 }
 
@@ -535,7 +598,7 @@ body {
 	border-radius: var(--moby-border-radius);
 	font-size: medium;
 	font-weight: 600;
-	width: max-content;
+	max-width: 500px;
 	height: max-content;
 }
 
@@ -566,4 +629,38 @@ body {
 
 .Moby-Toggle.Off {
 	transform: translateX(0);
+}
+
+/* Moby StrInput */
+
+
+.Moby-StrInput {
+	outline: none;
+	font-family: inherit;
+	color: var(--moby-sub-color);
+	background-color: var(--moby-white);
+	border: 2.5px solid var(--moby-primary-dark);
+	border-radius: var(--border-radius);
+	padding-inline: 25px;
+	font-weight: 500;
+	line-height: 2em;
+}
+
+.Moby-StrInput-Label {
+	margin: 0;
+	position: relative;
+	bottom: -0.6em;
+	padding-inline: 6px;
+	left: 1em;
+	background-color: var(--moby-white);
+	width: max-content;
+}
+
+.Moby-StrInput-Helper {
+	margin: 0;
+	position: relative;
+	top: 0em;
+	left: 1em;
+	font-weight: 500;
+	color: var(--moby-para-color);	
 }

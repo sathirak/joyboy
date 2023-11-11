@@ -6,6 +6,7 @@ const app = express();
 const port = 5000;
 
 app.use(cors());
+app.use(express.json());
 
 app.get('/api/tables', async (req, res) => {
   try {
@@ -52,6 +53,30 @@ app.get('/api/tables/:tableName', async (req, res) => {
   }
 });
 
+
+app.post('/api/query', async (req, res) => {
+  try {
+    const { query } = req.body;
+    console.log(query);
+    const connection = await getConnection();
+    
+    connection.query(query, (error, results) => {
+      connection.release();
+
+      if (error) {
+        console.error('Error executing query:', error);
+        res.json(error);
+        res.status(500).json({ error: 'Error executing query' });
+      } else {
+        res.json(results);
+      }
+    });
+  } catch (error) {
+    console.error('Error connecting to the database:', error);
+    res.json(error);
+    res.status(500).json({ error: 'Error connecting to the database' });
+  }
+});
 
 
 app.listen(port, () => {
