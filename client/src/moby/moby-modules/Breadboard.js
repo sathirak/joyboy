@@ -77,7 +77,9 @@ function Breadboard() {
 			.catch(error => {
 			  console.error('Error:', error);
 			});
-			handleTableClick(selectedTable);
+
+			setSelectedTable(null);
+
 	};
 
 	
@@ -159,11 +161,11 @@ function Breadboard() {
 					</div>
 
 			</div>)}
-
-			{selectedTable &&  <TableMaker tableName={selectedTable} onTableCellClick={handleTableCellClick} />}
 			{queryLog &&  (<div className=" Moby-Container-Column Moby-Container-Center" >
 							<div className=" Moby-Error-Log" >{queryLog}</div>
 							</div>)}
+			{selectedTable &&  <TableMaker tableName={selectedTable} onTableCellClick={handleTableCellClick} />}
+
 		</>
 	);
 }

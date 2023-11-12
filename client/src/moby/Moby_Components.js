@@ -254,7 +254,7 @@ const StrInput = ({ id, placeholder, label, help, type, max, width, isTextArea }
         return (
             <div className="">
                 <h5 className="Moby-StrInput-Label">{label}</h5>
-				<div id={id} contenteditable="plaintext-only" placeholder={placeholder} style={{ width: width, height: isTextArea ? 'auto' : '3.5em' }}
+				<div id={id} contentEditable="plaintext-only" placeholder={placeholder} style={{ width: width, height: isTextArea ? 'auto' : '3.5em' }}
                 className="Moby-StrInput" maxLength={max} autoComplete="off" autoCorrect="off" spellCheck="false" type={type} aria-label={label} ></div>               
 				<h5 className="Moby-StrInput-Helper">{help}</h5>
             </div>
