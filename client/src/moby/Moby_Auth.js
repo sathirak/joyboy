@@ -6,7 +6,7 @@ import Logo from "./Moby.svg";
 function Auth() {
 
   const [user, setUser] = useState(null);
-  const [isuser, setIsUser] = useState(true);
+  const [isuser, setIsUser] = useState(false);
   const [password, setPassword] = useState(false);
   const [go, setGo] = useState(false);
 
@@ -81,6 +81,12 @@ function Auth() {
     setPassword(value);
   }
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleGo();
+    }
+  };
+
   return (
     <div className='Moby Moby-Container-Page Moby-Container-Column Moby-Container-Center '>
       <div className="Moby-Logo Moby-Logo-Medium">
@@ -98,13 +104,13 @@ function Auth() {
       <div className='Moby-Icon-Block Moby-Credentials-Wrapper '>
 
         <CSSTransition in={go === false} timeout={{ enter: 200, exit: 0 }} classNames="Moby-Left" unmountOnExit appear>
-          <input placeholder='Username' type='text' className='Moby-Credentials' onChange={(e) => searchUser(e.target.value)} spellCheck='false' />
+          <input placeholder='Username' type='text' className='Moby-Credentials' onChange={(e) => searchUser(e.target.value)} spellCheck='false' onKeyPress={handleKeyPress} autoFocus={true} aria-label="Enter your username" />
         </CSSTransition>
 
 
 
         <CSSTransition in={go === true} timeout={{ enter: 200, exit: 0 }} classNames="Moby-Right" unmountOnExit appear>
-          <input placeholder='Password' type='text' className='Moby-Credentials' onChange={(e) => handlePassword(e.target.value)} spellCheck='false' />
+          <input placeholder='Password' type='text' className='Moby-Credentials' onChange={(e) => handlePassword(e.target.value)} spellCheck='false' onKeyPress={handleKeyPress} autoFocus={true} aria-label="Enter your password"/>
         </CSSTransition>
 
         <svg xmlns="http://www.w3.org/2000/svg" id="arrow-circle-down" viewBox="0 0 24 24" width="512" height="512" className='Moby-Icon-Medium Moby-Icon-Dark Moby-Icon-Right' onClick={handleGo}>
