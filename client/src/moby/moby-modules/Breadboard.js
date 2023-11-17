@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Dropdown, Toggle, TableMaker, Alert, StrInput, Popup } from "../Moby_Components";
+import { Dropdown, Toggle, TableMaker, Alert, StrInput, Popup } from "../moby_components/Moby_Components";
 
 
 

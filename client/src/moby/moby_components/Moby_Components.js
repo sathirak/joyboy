@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Dropdown_Arrow from "./moby-icons/dropdown.svg";
+import Dropdown_Arrow from "../moby-icons/dropdown.svg";
 
 /*const dropdownOptions = ['Option R', 'Option B', 'Option C', 'Option D', 'Option E'];
 const [selectedOption, setSelectedOption] = useState(null);

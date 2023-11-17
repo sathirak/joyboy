@@ -117,14 +117,40 @@ body {
 	--moby-error: #ea0d67;
 	--moby-disable: #90a9a9;
 	--moby-offwhite: #ececec;
-	--moby-white: #f5f5f5;
+	--moby-white: #fbfcfb;
 	--moby-complete: #5b75a3;
 	--moby-icon-dark: #2d3748;
 	--moby-icon-light: #f5f5f5;
 	--moby-border-radius: 10px;
 	--moby-border-round: 999px;
 	--moby-ui-speed: 300ms;
+	--moby-ui-speed-trans: 200ms;
 	--moby-border: ;
+}
+
+.Moby-Logo {
+	background-color: #e0f7fa;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 999px;
+	width: max-content;
+	margin: 2px;
+}
+
+.Moby-Logo-Small img {
+	width: 100px;
+	height: 100px;
+}
+
+.Moby-Logo-Medium img {
+	width: 200px;
+	height: 200px;
+}
+
+.Moby-Logo-Large img {
+	width: 300px;
+	height: 300px;
 }
 
 .Moby-Container {
@@ -133,9 +159,20 @@ body {
 	height: 100%;
 }
 
+.Moby-Container-Page {
+	padding: 1vw;
+	width: 100vw;
+	height: 100vh;
+}
+
 .Moby-Container-Column {
 	display: flex;
 	flex-direction: column;
+}
+
+.Moby-Container-Center {
+	align-items: center;
+	justify-content: center;
 }
 
 .Moby-Container-Row {
@@ -154,9 +191,6 @@ body {
 	justify-content: space-between;
 }
 
-.Moby-Container-Center {
-	align-items: center;
-}
 
 .Moby-Heading {
 	margin: 10px;
@@ -268,16 +302,41 @@ body {
 	background-color: var(--moby-offwhite);
 }
 
+.Moby-Credentials-Wrapper {
+	width: clamp(300px, 35vw, 400px) !important;
+	position: relative;
+	overflow: hidden;
+}
+
+.Moby-Credentials {
+    width: clamp(300px, 35vw, 400px);
+    outline: none;
+    border: none;
+    padding: 15px;
+    padding-inline: 25px;
+    border-radius: var(--border-round);
+    background-color: var(--mono-bril);
+	color: var(--moby-para-color);
+    font-size: large;
+	font-weight: 600;
+	font-family: "Quicksand", system-ui;
+}
+
 .Moby-Spacer {
 	width: 100%;
 }
 
 .Moby-Icon-Block {
-	margin: 10px;
-	width: max-content;
-	height: max-content;
-	display: flex;
-	align-items: center;
+    margin: 10px;
+    width: max-content;
+    height: max-content;
+    display: flex;
+    align-items: center;
+}
+
+.Moby-Icon-Right {
+	position: absolute;
+	right: 0px;
 }
 
 .Moby-Icon-Dark {
@@ -302,7 +361,7 @@ body {
 	cursor: pointer;
 	width: 35px;
 	height: 35px;
-	margin: 5px;
+	margin: 15px;
 	transition: all var(--moby-ui-speed) ease;	
 }
 
@@ -664,3 +723,41 @@ body {
 	font-weight: 500;
 	color: var(--moby-para-color);	
 }
+
+.Moby-Left-enter {
+	transform: translateX(0%);
+}
+
+.Moby-Left-enter-active {
+	transform: translateX(-110%);
+	transition: all var(--moby-ui-speed-trans) ease;
+}
+
+.Moby-Left-exit {
+    transform: translateX(0%);
+}
+
+.Moby-Left-exit-active {
+	transform: translateX(-110%);
+	transition: all var(--moby-ui-speed-trans) ease;
+}
+
+
+.Moby-Right-enter {
+	transform: translateX(110%);
+  }
+  
+  .Moby-Right-enter-active {
+	transform: translateX(0%);
+	transition: all var(--moby-ui-speed-trans) ease;
+  }
+  
+  .Moby-Right-exit {
+	transform: translateX(-110%); /* Change the exit direction */
+  }
+  
+  .Moby-Right-exit-active {
+	transform: translateX(-110%);
+	transition: all var(--moby-ui-speed-trans) ease;
+  }
+  

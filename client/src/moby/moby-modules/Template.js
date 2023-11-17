@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from 'react';
 
-import { Dropdown, Tab, Popup, Toggle, StrInput } from "../Moby_Components";
+import { Dropdown, Tab, Popup, Toggle, StrInput } from "../moby_components/Moby_Components";
 
 
 function Template() {
