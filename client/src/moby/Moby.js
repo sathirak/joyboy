@@ -4,7 +4,7 @@ import "./Moby.css";
 
 import Logo from "./Moby.svg";
 
-const permitted_moby_modules = ["Breadboard", "Dashboard", "Analytics", "Template"];
+const permitted_moby_modules = ["Breadboard", "Dashboard", "Analytics", "Template", "Registrar"];
 const startup_moby_module = ["Template"];
 const icons = {};
 

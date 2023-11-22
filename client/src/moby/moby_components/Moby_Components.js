@@ -163,7 +163,7 @@ function TableMaker({ tableName, onTableCellClick }) {
 	useEffect(() => {
 		async function fetchTableDetails() {
 			try {
-				const response = await fetch(`http://localhost:5000/api/tables/${tableName}`);
+				const response = await fetch(`/headliners/tables/${tableName}`);
 				if (response.ok) {
 					const data = await response.json();
 					setTableData(data);

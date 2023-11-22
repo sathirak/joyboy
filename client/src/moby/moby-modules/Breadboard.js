@@ -37,7 +37,7 @@ function Breadboard() {
 	  useEffect(() => {
         const handleShowTables = async () => {
             try {
-                const response = await fetch("http://localhost:5000/api/tables");
+                const response = await fetch("/headliners/tables");
                 if (response.ok) {
                     const data = await response.json();
                     setDropdownOptions(data);
@@ -63,7 +63,7 @@ function Breadboard() {
 	const queryMaster = (query) => {
 		setIsPopupOpen(false);
 
-		fetch('http://localhost:5000/api/query', {
+		fetch('/headliners/query', {
 			method: 'POST',
 			headers: {
 			  'Content-Type': 'application/json',

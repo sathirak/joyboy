@@ -1,14 +1,37 @@
 const express = require('express');
-const getConnection = require('./db');
-const cors = require('cors');
+const router = express.Router();
+const mysql = require('mysql2');
 
-const app = express();
-const port = 5000;
+router.use(express.json());
 
-app.use(cors());
-app.use(express.json());
+router.get('/', (req, res) => {
+  res.send('Welcome to the Top Board!');
+});
 
-app.get('/api/tables', async (req, res) => {
+const conn_headliners = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: "headliners",
+};
+
+const pool = mysql.createPool(conn_headliners);
+
+const getConnection = () => {
+  return new Promise((resolve, reject) => {
+    pool.getConnection((err, connection) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(connection);
+    });
+  });
+};
+
+
+router.get('/tables', async (req, res) => {
+  console.log('topboard/tables has been requested');
   try {
     const connection = await getConnection();
 
@@ -19,7 +42,7 @@ app.get('/api/tables', async (req, res) => {
         console.error('Error fetching tables:', error);
         res.status(500).json({ error: 'Error fetching tables' });
       } else {
-        const tableNames = results.map((row) => row['Tables_in_homepage']);
+        const tableNames = results.map((row) => row['Tables_in_headliners']);
         console.log(tableNames);
         res.json(tableNames);
       }
@@ -31,7 +54,8 @@ app.get('/api/tables', async (req, res) => {
 });
 
 
-app.get('/api/tables/:tableName', async (req, res) => {
+router.get('/tables/:tableName', async (req, res) => {
+  console.log('topboard/tables/:tableName has been requested');
   try {
     const connection = await getConnection();
     const tableName = req.params.tableName;
@@ -54,7 +78,8 @@ app.get('/api/tables/:tableName', async (req, res) => {
 });
 
 
-app.post('/api/query', async (req, res) => {
+router.post('/query', async (req, res) => {
+  console.log('topboard/query has bee requested');
   try {
     const { query } = req.body;
     console.log(query);
@@ -78,7 +103,4 @@ app.post('/api/query', async (req, res) => {
   }
 });
 
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+module.exports = router;

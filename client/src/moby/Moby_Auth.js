@@ -10,28 +10,52 @@ function Auth() {
   const [password, setPassword] = useState(false);
   const [go, setGo] = useState(false);
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const setAuthStatus = (status) => {
+    setIsAuthenticated(status);
+  };
+
+
+    // Function to fetch authentication status
+    const fetchAuthStatus = async () => {
+      try {
+        const response = await fetch('/hyperion/status');
+        if (response.ok) {
+          const data = await response.json();
+          setAuthStatus(data.isAuthenticated);
+          console.log(data.isAuthenticated); // Assuming the response returns { isAuthenticated: true/false }
+        } else {
+          // Handle error scenarios if needed
+          console.error('Failed to fetch authentication status');
+        }
+      } catch (error) {
+        console.error('Error fetching authentication status:', error);
+      }
+    };
+
+
+
+
+    
   const searchUser = async (value) => {
 
     setIsUser(false);
     setUser(value);
 
     try {
-      const response = await fetch('https://api.example.com/auth', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-      });
+      const response = await fetch(`/hyperion/check/${value}`);
+      const data = await response.json();
+      setIsUser(data.exists);
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 
-      const data = await response.json();
-      if (data !== false) {
+      if (data.exists !== false) {
         setIsUser(true);
       } else {
+        setIsUser(false);
         setUser(null);
       }
     } catch (error) {
@@ -47,7 +71,7 @@ function Auth() {
       const credentials = { uname: user, pw: password };
 
       try {
-        const response = await fetch('https://api.example.com/auth', {
+        const response = await fetch('hyperion/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -64,6 +88,7 @@ function Auth() {
           setIsUser(false);
           setPassword(null);
           setUser(null);
+          fetchAuthStatus();
         } else {
           setPassword(null);
         }
