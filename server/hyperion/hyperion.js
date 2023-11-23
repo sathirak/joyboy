@@ -162,11 +162,11 @@ router.get("/logout", Hyperion_Auth,(req, res) => {
 });
 
 router.get("/login-success", Hyperion_Auth, (req, res, next) => {
-    res.send(`Welcome,  ${req.user.moby_name} ! You successfully logged in via ${req.ip}  `);
+    return res.json({ isAuthenticated: true });
 });
 
 router.get("/login-failure", (req, res, next) => {
-	res.send("Incorrect credentials. Please try again");	
+	return res.json({ isAuthenticated: false });	
 });
 
 router.post("/register", async (req, res, next) => {
@@ -220,8 +220,10 @@ router.post("/login", passport.authenticate("local", {
 
 router.get('/status', (req, res) => {
 	if (req.isAuthenticated()) {
+		console.log(true);
 	  return res.json({ isAuthenticated: true });
 	} else {
+		console.log(false);
 	  return res.json({ isAuthenticated: false });
 	}
   });

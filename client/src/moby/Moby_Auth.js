@@ -9,34 +9,6 @@ function Auth() {
   const [isuser, setIsUser] = useState(false);
   const [password, setPassword] = useState(false);
   const [go, setGo] = useState(false);
-
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const setAuthStatus = (status) => {
-    setIsAuthenticated(status);
-  };
-
-
-    // Function to fetch authentication status
-    const fetchAuthStatus = async () => {
-      try {
-        const response = await fetch('/hyperion/status');
-        if (response.ok) {
-          const data = await response.json();
-          setAuthStatus(data.isAuthenticated);
-          console.log(data.isAuthenticated); // Assuming the response returns { isAuthenticated: true/false }
-        } else {
-          // Handle error scenarios if needed
-          console.error('Failed to fetch authentication status');
-        }
-      } catch (error) {
-        console.error('Error fetching authentication status:', error);
-      }
-    };
-
-
-
-
     
   const searchUser = async (value) => {
 
@@ -69,7 +41,6 @@ function Auth() {
 
 
       const credentials = { uname: user, pw: password };
-
       try {
         const response = await fetch('hyperion/login', {
           method: 'POST',
@@ -83,12 +54,16 @@ function Auth() {
           throw new Error('Network response was not ok');
         }
 
+        
+
         const data = await response.json();
+
+        console.log('Logged from Moby_Auth', data);
+
         if (data !== false) {
           setIsUser(false);
           setPassword(null);
           setUser(null);
-          fetchAuthStatus();
         } else {
           setPassword(null);
         }
