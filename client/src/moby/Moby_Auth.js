@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { useNavigate } from 'react-router-dom';
+import {useAuth} from '../AuthProvider';
 import "./Moby.css";
 import Logo from "./Moby.svg";
 
 function Auth() {
 
+  const {isAuth, fetchAuth} = useAuth();
+
   const [user, setUser] = useState(null);
   const [isuser, setIsUser] = useState(false);
   const [password, setPassword] = useState(false);
   const [go, setGo] = useState(false);
-    
+  const [helperText, setHelperText] = useState(false);
+
+  const navigate = useNavigate();
+
   const searchUser = async (value) => {
 
     setIsUser(false);
-    setUser(value);
 
     try {
       const response = await fetch(`/hyperion/check/${value}`);
@@ -28,7 +34,6 @@ function Auth() {
         setIsUser(true);
       } else {
         setIsUser(false);
-        setUser(null);
       }
     } catch (error) {
       console.error('Error fetching user data:', error.message);
@@ -38,7 +43,8 @@ function Auth() {
   const handleGo = async () => {
 
     if (user && isuser && password) {
-
+      
+      setHelperText(null);
 
       const credentials = { uname: user, pw: password };
       try {
@@ -57,16 +63,19 @@ function Auth() {
         
 
         const data = await response.json();
+        
+        setHelperText(data.message);   
 
-        console.log('Logged from Moby_Auth', data);
-
-        if (data !== false) {
-          setIsUser(false);
-          setPassword(null);
-          setUser(null);
+        if (data.status !== false) {
+          fetchAuth();
+          
         } else {
-          setPassword(null);
+
         }
+        setIsUser(false);
+        setPassword(null);
+        setUser(null);
+        
       } catch (error) {
         console.error('Error fetching user data:', error.message);
       }
@@ -75,6 +84,7 @@ function Auth() {
     } else if (isuser) {
       setGo(true);
     }
+    
   };
 
   const handlePassword = (value) => {
@@ -87,12 +97,15 @@ function Auth() {
     }
   };
 
+  if (isAuth){
+    navigate('/');
+  }
+
   return (
-    <div className='Moby Moby-Container-Page Moby-Container-Column Moby-Container-Center '>
-      <div className="Moby-Logo Moby-Logo-Medium">
+    <div  className='Moby Moby-Container-Page Moby-Container-Column Moby-Container-Center '>
+      <div  className="Moby-Logo Moby-Logo-Medium">
         <img src={Logo} alt="Logo of Moby Software" />
       </div>
-
 
       {go === true ? (
         <h2 className='Moby-Heading'>Password ???</h2>
@@ -104,7 +117,7 @@ function Auth() {
       <div className='Moby-Icon-Block Moby-Credentials-Wrapper '>
 
         <CSSTransition in={go === false} timeout={{ enter: 200, exit: 0 }} classNames="Moby-Left" unmountOnExit appear>
-          <input placeholder='Username' type='text' className='Moby-Credentials' onChange={(e) => searchUser(e.target.value)} spellCheck='false' onKeyPress={handleKeyPress} autoFocus={true} aria-label="Enter your username" />
+          <input placeholder='Username' type='text' className='Moby-Credentials' onChange={(e) => {setUser(e.target.value);searchUser(e.target.value);}} spellCheck='false' onKeyPress={handleKeyPress} autoFocus={true} aria-label="Enter your username" />
         </CSSTransition>
 
 
@@ -117,6 +130,8 @@ function Auth() {
           <path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm16,0a2.993,2.993,0,0,1-.752,1.987c-.291.327-.574.637-.777.84L11.647,17.7a1,1,0,1,1-1.426-1.4L13.05,13.42c.187-.188.441-.468.7-.759a1,1,0,0,0,0-1.323c-.258-.29-.512-.57-.693-.752L10.221,7.7a1,1,0,1,1,1.426-1.4l2.829,2.879c.2.2.48.507.769.833A2.99,2.99,0,0,1,16,12Z" />
         </svg>
       </div>
+
+          <h4 className='Moby-Heading'>{helperText}</h4>
 
       {go === true ? (
         <a className='Moby-Link' href='/forgot'>

@@ -49,7 +49,7 @@ conn_moby_user.connect((err) => {
 
 //Use the middleware
 router.use(Hyperion_Control);
-router.use(Hyperion_Rate);
+/*router.use(Hyperion_Rate);*/
 
 //Use the passport
 router.use(passport.initialize());
@@ -62,6 +62,8 @@ router.use(bodyParser.urlencoded({ extended: true }));
 const credentials = {usernameField: "uname",passwordField: "pw" };
 
 const verify_callback = (username, password, done) => {
+
+	console.log('credentials used to login', username, password);
 
 	conn_moby_user.query("SELECT * FROM moby_users WHERE moby_name = ?", [username], function (error, results, fields) {
 
@@ -149,24 +151,20 @@ router.get("/", (req, res, next) => {
 	res.send('Home');
 });
 
-router.get("/logout", Hyperion_Auth,(req, res) => {
-    req.logout();
-    req.session.destroy((err) => {
+router.get("/logout", Hyperion_Auth, (req, res) => {
+    req.logout((err) => {
         if (err) {
-            console.error('Error destroying session:', err);
-        } else {
-            res.clearCookie('auth_cookie');
-            res.send(`You have logged out`);
+            console.error('Error logging out:', err);
         }
+        req.session.destroy((error) => {
+            if (error) {
+                console.error('Error destroying session:', error);
+            } else {
+                res.clearCookie('auth_cookie');
+                res.send(`You have logged out`);
+            }
+        });
     });
-});
-
-router.get("/login-success", Hyperion_Auth, (req, res, next) => {
-    return res.json({ isAuthenticated: true });
-});
-
-router.get("/login-failure", (req, res, next) => {
-	return res.json({ isAuthenticated: false });	
 });
 
 router.post("/register", async (req, res, next) => {
@@ -189,11 +187,24 @@ router.post("/register", async (req, res, next) => {
 });
 
 
-router.post("/login", passport.authenticate("local", { 
-	failureRedirect: "/login-failure",
-	successRedirect: "/login-success",
-	failureFlash: false
- }));
+router.post("/login", (req, res, next) => {
+	passport.authenticate("local", (err, user, info) => {
+	  if (err) {
+		return res.status(500).json({ status: false, message: 'There was an internal server error' });
+	  }
+	  if (!user) {
+		return res.status(200).json({ status: false, message: 'Login was unsuccessful' });
+	  }
+	  req.logIn(user, (loginErr) => {
+		if (loginErr) {
+		  return res.status(500).json({ status: false, message: 'There was an error logging in' });
+		}
+		// If login successful
+		return res.status(200).json({ status: true, message: 'Login successful' });
+	  });
+	})(req, res, next);
+  });
+  
 
  router.get('/check/:username', (req, res) => {
     const usernameToCheck = req.params.username;
@@ -220,11 +231,9 @@ router.post("/login", passport.authenticate("local", {
 
 router.get('/status', (req, res) => {
 	if (req.isAuthenticated()) {
-		console.log(true);
-	  return res.json({ isAuthenticated: true });
+	  return res.json({ status: true });
 	} else {
-		console.log(false);
-	  return res.json({ isAuthenticated: false });
+	  return res.json({ status: false });
 	}
   });
   

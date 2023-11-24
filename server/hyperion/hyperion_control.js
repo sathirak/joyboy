@@ -61,7 +61,7 @@ function Hyperion_Auth(req, res, next) {
 	if (req.isAuthenticated()) {
 			next();
 	} else {
-		return res.redirect("/notAuthorized");
+		return res.send( `You are not logged in to logout`);
 	}
 }
 
