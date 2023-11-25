@@ -1,0 +1,106 @@
+@font-face {
+	font-family: "Quicksand";
+	src: url("assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf") format("truetype");
+}
+
+:root {
+	--brand-active: #11babf;
+	--brand: #28d6db;
+	--brand-link: #63e8ec;
+	--brand-background: #a9f8e5;
+	--brand-accent: #f5e5c9;
+	--brand-highlight: #edd09f;
+
+	--mono-ui: #292D32;
+	--mono-tar: #303030;
+	--mono-title: #4b4b4b;
+	--mono-subtitle: #8a8a8a;
+	--mono-smoke: #f5f5f5;
+    --mono-bril: white;
+
+	--box-shadow: 0px 2px 6px 2px rgba(51, 113, 142, 0.34), 0px 1px 2px 0px rgb(165 165 165 / 11%);
+    --box-nav:  0 3px 5px rgba(0,0,0,0.1);
+	--box-hover: 0px 0.8px 2px rgba(0,0,0,.032),0px 2.7px 6.7px rgba(0,0,0,.048),0px 12px 30px rgba(0,0,0,.08);
+	--text-shadow: 0px 2px 6px rgba(172, 172, 172, 0.34), 0px 1px 2px rgba(165, 165, 165, 0.11);
+	--enlarge: scale(1.05);
+	--transition: all 0.4s ease;
+	--border-round: 999px;
+	--border-radius: 10px;
+	--border-color: unset;
+	--border-style: unset;
+	--border-width: unset;
+
+	--speed-ui: 100ms;
+
+	--red: #f44336;
+	--orange: #ffb74d;
+	--yellow: #ffee58;
+	--teal: #80deea;
+	--lime: #c4fb83;
+	--mauve: #9575cd;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+body {
+	font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-color: var(--mono-smoke);
+	margin: 0;
+	overflow-x: hidden;
+}
+
+input {
+	caret-color: var(--brand-active);
+}
+
+* {
+	-webkit-tap-highlight-color: transparent;
+	box-sizing: border-box;
+	outline: 0;
+}
+
+html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+}
+
+*::-webkit-scrollbar {
+	width: 10px;
+	height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background: var(--teal);
+	border-radius: var(--border-round);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background: var(--brand-active);
+	border-radius: var(--border-round);
+}
+
+*::-webkit-scrollbar-track {
+	background-color: #e1e0e0;
+}
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(5px);
+	}
+	50% {
+		transform: translateY(-5px);
+	}
+}

@@ -4,6 +4,10 @@
     transition: all 200ms ease;
 }
 
+#Nav {
+	display: flex;
+}
+
 .Nav-Outer {
 	position: fixed;
 	width: 100vw;

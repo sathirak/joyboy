@@ -34,11 +34,11 @@ function Navigator() {
                 
                 <div className='Nav-Icon'>
                   <svg width="23" height="23" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M48.7817 24H51.707C54.8102 24 57.7864 25.2643 59.9807 27.5147C62.1751 29.7652 63.4079 32.8174 63.4079 36C63.4079 39.1826 62.1751 42.2348 59.9807 44.4853C57.7864 46.7357 54.8102 48 51.707 48H48.7817" stroke="#292D32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M2.95312 24H48.7816V51C48.7816 54.1826 47.5745 57.2348 45.4259 59.4853C43.2773 61.7357 40.3631 63 37.3245 63H14.4103C11.3716 63 8.45747 61.7357 6.30884 59.4853C4.16021 57.2348 2.95313 54.1826 2.95312 51V24Z" stroke="#292D32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M14.6541 3V12" stroke="#292D32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M25.3799 3V12" stroke="#292D32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M37.0808 3V12" stroke="#292D32" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M48.7817 24H51.707C54.8102 24 57.7864 25.2643 59.9807 27.5147C62.1751 29.7652 63.4079 32.8174 63.4079 36C63.4079 39.1826 62.1751 42.2348 59.9807 44.4853C57.7864 46.7357 54.8102 48 51.707 48H48.7817" stroke="#292D32" strokeWidth="5" strokeLinecap="round"/>
+                      <path d="M2.95312 24H48.7816V51C48.7816 54.1826 47.5745 57.2348 45.4259 59.4853C43.2773 61.7357 40.3631 63 37.3245 63H14.4103C11.3716 63 8.45747 61.7357 6.30884 59.4853C4.16021 57.2348 2.95313 54.1826 2.95312 51V24Z" stroke="#292D32" strokeWidth="5" strokeLinecap="round"/>
+                      <path d="M14.6541 3V12" stroke="#292D32" strokeWidth="5" strokeLinecap="round" />
+                      <path d="M25.3799 3V12" stroke="#292D32" strokeWidth="5" strokeLinecap="round" />
+                      <path d="M37.0808 3V12" stroke="#292D32" strokeWidth="5" strokeLinecap="round" />
                   </svg>
                 </div>
             
@@ -59,9 +59,9 @@ function Navigator() {
 
               <div className='Nav-Icon'>
                 <svg width="20" height="20" viewBox="0 0 56 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 3H52" stroke="#292D32" stroke-width="5" stroke-linecap="round"/>
-                  <path d="M10 20L52 20" stroke="#292D32" stroke-width="5" stroke-linecap="round"/>
-                  <path d="M3 37H52" stroke="#292D32" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M3 3H52" stroke="#292D32" strokeWidth="5" strokeLinecap="round"/>
+                  <path d="M10 20L52 20" stroke="#292D32" strokeWidth="5" strokeLinecap="round"/>
+                  <path d="M3 37H52" stroke="#292D32" strokeWidth="5" strokeLinecap="round"/>
                 </svg>
               </div>
 

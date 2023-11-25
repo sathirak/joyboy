@@ -1,37 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import "./Element.css";
 
-const type_list = ["Spotlight", "type2", "type3"];
-const subtype_list = ["subtype1", "subtype2", "subtype3"];
-const flag_list = ["flag1", "flag2", "flag3"];
-
-const FallbackElement = ({ unrecog_props, component }) => (
-  <div className="Error" title={`"${unrecog_props.join(', ')}" is unrecognized! Please provide valid props to component ${component}!`}>
-    Unexpected Joyerror: 001
-  </div>
-);
-
-class Element extends Component {
-  render() {
-    const { joydex, type, subtype, flag, component } = this.props;
-    const unrecog_array = [];
-
-    [type, subtype, flag].forEach((prop, index) => {
-      if (!type_list.includes(prop) && !subtype_list.includes(prop) && !flag_list.includes(prop)) {
-        unrecog_array.push(prop);
-      }
-    });
-
-    if (unrecog_array.length > 0) {
-      return <FallbackElement unrecog_props={unrecog_array} component={component} />;
-    }
+function Element({ joydex, component }) {
+  if (component === "Spotlight") {
+    const img = require(`../fakedata/img/img-1/${joydex}-img-1.jpg`);
 
     return (
-      <div id={joydex} className={type + subtype + flag}>
-      </div>
+      <Link to="/your-route">
+        <div className="Element">
+          <div className={component + '-Component'}>
+            <div className={component + '-Component-Flag'}></div>
+            <img className={component + '-Component-Img'} src={img} alt="Default Image" />
+            <div className={component + '-Component-Title'} >Colombo, Sri Lanka</div>
+          </div>
+        </div>
+      </Link>
     );
   }
+
+  return null;
 }
 
 export default Element;
-
