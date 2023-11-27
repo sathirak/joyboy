@@ -4,44 +4,28 @@
 }
 
 :root {
-	--brand-active: #11babf;
-	--brand: #28d6db;
-	--brand-link: #63e8ec;
-	--brand-background: #a9f8e5;
-	--brand-accent: #f5e5c9;
-	--brand-highlight: #edd09f;
+	--joy-hue-white: #FDFDFD;
+	--joy-hue-smoke: #FAFAFA;
+	--joy-hue-red: #FF3458;
+	--joy-hue-yellow: #FFDD43;
+	--joy-hue-aqua: #23DCE0;
+	--joy-hue-indigo: #1B1E39;
+	--joy-hue-gray: #4B4B4B;
+	--joy-hue-darkgray: #353535;
 
-	--mono-ui: #292D32;
-	--mono-tar: #303030;
-	--mono-title: #4b4b4b;
-	--mono-subtitle: #8a8a8a;
-	--mono-smoke: #f5f5f5;
-    --mono-bril: white;
+	--joy-hue-error: #FF3458;
+	--joy-hue-hover: rgb(210, 210, 210);
 
-	--box-shadow: 0px 2px 6px 2px rgba(51, 113, 142, 0.34), 0px 1px 2px 0px rgb(165 165 165 / 11%);
-    --box-nav:  0 3px 5px rgba(0,0,0,0.1);
-	--box-hover: 0px 0.8px 2px rgba(0,0,0,.032),0px 2.7px 6.7px rgba(0,0,0,.048),0px 12px 30px rgba(0,0,0,.08);
-	--text-shadow: 0px 2px 6px rgba(172, 172, 172, 0.34), 0px 1px 2px rgba(165, 165, 165, 0.11);
-	--enlarge: scale(1.05);
-	--transition: all 0.4s ease;
-	--border-round: 999px;
-	--border-radius: 10px;
-	--border-color: unset;
-	--border-style: unset;
-	--border-width: unset;
+	--joy-hue-ui: #1B1E39;
 
-	--speed-ui: 100ms;
+	--joy-speed-ui: 200ms;
+	--joy-speed-ui-special: 300ms;
+	--joy-speed-ui-extended: 600ms;
 
-	--red: #f44336;
-	--orange: #ffb74d;
-	--yellow: #ffee58;
-	--teal: #80deea;
-	--lime: #c4fb83;
-	--mauve: #9575cd;
-}
-
-:root {
-
+	--joy-border-shadow:0px 2px 6px 2px rgba(51, 113, 142, 0.34), 0px 1px 2px 0px rgb(165 165 165 / 11%);
+	--joy-border-shadow-soft:0 3px 5px rgba(0,0,0,0.1);
+	--joy-border-radius: 10px;
+	--joy-border-round: 999px;
 }
 
 html {
@@ -97,14 +81,4 @@ ul {
 
 *::-webkit-scrollbar-track {
 	background-color: #e1e0e0;
-}
-
-@keyframes float {
-	0%,
-	100% {
-		transform: translateY(5px);
-	}
-	50% {
-		transform: translateY(-5px);
-	}
 }

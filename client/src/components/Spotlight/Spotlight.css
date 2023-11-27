@@ -16,15 +16,15 @@
 
 .Spotlight-Button {
     cursor: pointer;
-    background-color: var(--mono-smoke);
+    background-color: var(--joy-hue-smoke);
     width: clamp(10px, 1.5vw, 25px);
     height: clamp(10px, 1.5vw, 25px);
-    border-radius: var(--border-round);
+    border-radius: var(--joy-border-round);
     margin-inline: 15px;
-    transition: all var(--speed-ui) ease;
+    transition: all var(--joy-speed-ui) ease;
 }
 
 .Active-Button {
-    outline: 2px solid var(--mono-smoke);
+    outline: 2px solid var(--joy-hue-smoke);
     outline-offset: 2px;
 }

@@ -11,13 +11,13 @@
 .Spotlight-Component-Img {
     width: clamp( 150px, 93vw, 1200px);
     height: clamp( 180px, 50vw, 20vw);
-    border-radius: var(--border-radius);
+    border-radius: var(--joy-border-radius);
     margin: 10px;
     object-fit: cover;
 }
 
 .Spotlight-Component-Title {
-    color: var(--mono-smoke);
+    color: var(--joy-hue-smoke);
     font-weight: 600;
     margin: 25px;
     position: absolute;

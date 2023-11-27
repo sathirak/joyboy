@@ -18,12 +18,9 @@
 .Nav-Container {
 	width: clamp(300px, 97vw, 700px);
 	height: clamp(50px, 50px, 100px);
-	border-radius: var(--border-round);
-	background-color: var(--mono-bril);
-	box-shadow: var(--box-nav);
-	border-style: var(--border-style);
-	border-width: var(--border-width);
-	border-color: var(--border-color);
+	border-radius: var(--joy-border-round);
+	background-color: var(--joy-hue-white);
+	box-shadow: var(--joy-border-shadow-soft);
 	margin: 10px 3px 0px 3px;
 	padding: 0px 4px 0px 4px;
 	display: flex;
@@ -56,6 +53,21 @@
     padding: clamp(1px, 1.5vw, 20px);
 }
 
+.Nav-Logo {
+    margin-left: clamp(1px, 1.5vw, 20px);
+    margin-right: clamp(1px, 1.5vw, 20px);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+    padding: clamp(1px, 1.5vw, 20px);
+	transition: transform var(--joy-speed-ui) ease;
+}
+
+.Nav-Logo:hover {
+	transform: scale(1.2);
+}
+
 .Nav-Inner {
 	display: flex;
 	justify-content: space-evenly;
@@ -69,7 +81,7 @@
 .Nav-Link {
 	font-size: clamp(10px, 2.6vh, 16px);
 	font-weight: bold;
-	color: var(--mono-ui);
+	color: var(--joy-hue-ui);
 	padding: 5px;
 	height: 100%;
 	width: 100%;
@@ -77,11 +89,12 @@
 	align-items: center;
 	justify-content: center;
 	text-decoration: none;
+	transition: all var(--joy-speed-ui-special) ease;
 }
 
 .Nav-Link:hover {
-	background-color: var(--brand);
-	color: var(--mono-bril);
+	background-color: var(--joy-hue-aqua);
+	color: var(--joy-hue-white);
 }
 
 .Nav-Input {
@@ -91,7 +104,7 @@
     resize: none;
     background-color: transparent;
     border: none;
-    color: var(--mono-title);
+    color: var(--joy-hue-ui);
     outline: none;
     -webkit-tap-highlight-color: transparent;
     width: clamp(160px, 80%, 400px);
@@ -113,7 +126,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .Nav-Left-enter-active {
 	transform: translateX(-110%);
-	transition: all var(--speed-ui) ease;
+	transition: all var(--joy-speed-ui) ease;
 }
 
 .Nav-Left-exit {
@@ -122,7 +135,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .Nav-Left-exit-active {
 	transform: translateX(-110%);
-	transition: all var(--speed-ui) ease;
+	transition: all var(--joy-speed-ui) ease;
 }
 
 
@@ -132,7 +145,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .Nav-Right-enter-active {
 	transform: translateX(110%);
-	transition: all var(--speed-ui) ease;
+	transition: all var(--joy-speed-ui) ease;
 }
 
 .Nav-Right-exit {
@@ -142,6 +155,63 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .Nav-Right-exit-active {
 	transform: translateX(110%);
-	transition: all var(--speed-ui) ease;
+	transition: all var(--joy-speed-ui) ease;
 }
 
+.Menu {
+	width: 300px;
+	background-color: var(--joy-hue-smoke);
+	box-shadow: var(--joy-border-shadow);
+	border-radius: var(--joy-border-radius);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 4;
+	padding: 10px;
+  }
+
+#Menu-Overlay {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	background-color: transparent;
+	z-index: 3;
+}
+
+.Menu-Close {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Menu-Inner{
+	padding-inline: 15px;
+}
+
+.Menu-Option {
+    font-weight: 600;
+	margin: 5px;
+    color: var(--joy-hue-ui);
+    display: flex;
+    align-items: center;
+    border-radius: var(--joy-border-round);
+    transition: all var(--joy-speed-ui) ease;
+    text-align: center;
+	padding-inline-start: 15px;
+	text-decoration: none;
+}
+
+.Menu-Option:hover {
+	background-color: var(--joy-hue-hover);
+}
+
+.Menu-Option-Icon {
+	margin-left: clamp(1px, 1.5vw, 20px);
+    margin-right: clamp(1px, 1.5vw, 20px);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+    padding: clamp(1px, 1.5vw, 10px);
+}

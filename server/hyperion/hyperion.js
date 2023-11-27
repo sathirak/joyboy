@@ -49,7 +49,7 @@ conn_moby_user.connect((err) => {
 
 //Use the middleware
 router.use(Hyperion_Control);
-/*router.use(Hyperion_Rate);*/
+router.use(Hyperion_Rate);
 
 //Use the passport
 router.use(passport.initialize());
