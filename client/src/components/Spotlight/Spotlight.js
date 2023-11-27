@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Spotlight.css";
 import Element from "../Element/Element";
 
-const data = ["123453-ev", "123456-ds", "123451-fd"];
+const data = ['202306-FOOD-1', '202306-FOOD-2', '202306-FOOD-3'];
 
 function Spotlight() {
 	const [currentIndex, setCurrentIndex] = useState(0);
