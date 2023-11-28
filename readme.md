@@ -1,7 +1,7 @@
 
 <div align="center">
   <div class="image-container">
-    <img src="client-moby/src/moby/Moby.svg" width="120" alt="Logo"/>
+    <img src="docs/readme/Moby.svg" width="120" alt="Logo"/>
   </div>
   <h3 align="center">Joyboy</h3>
 </div>
@@ -36,11 +36,11 @@
 </br>
 <div align="center">
   <div class="image-container">
-    <img src="https://github.com/sekisaii/joyboy/blob/main/readme/node-js.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/sekisaii/joyboy/blob/main/readme/react-js.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/sekisaii/joyboy/blob/main/readme/php.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/sekisaii/joyboy/blob/main/readme/mysql.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/sekisaii/joyboy/blob/main/readme/css3.svg" width="80" alt="Logo"/>
+    <img src="docs/readme/node-js.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="docs/readme/react-js.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="docs/readme/php.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="docs/readme/mysql.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="docs/readme/css3.svg" width="80" alt="Logo"/>
   </div>
 </div>
 
