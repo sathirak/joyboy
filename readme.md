@@ -36,11 +36,11 @@
 </br>
 <div align="center">
   <div class="image-container">
-    <img src="https://github.com/sekisaii/joyboy/blob/main/README/node-js.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/sekisaii/joyboy/blob/main/README/react-js.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/sekisaii/joyboy/blob/main/README/php.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/sekisaii/joyboy/blob/main/README/mysql.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/sekisaii/joyboy/blob/main/README/css3.svg" width="80" alt="Logo"/>
+    <img src="https://github.com/sekisaii/joyboy/blob/main/readme/node-js.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/sekisaii/joyboy/blob/main/readme/react-js.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/sekisaii/joyboy/blob/main/readme/php.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/sekisaii/joyboy/blob/main/readme/mysql.svg" width="80" alt="Logo"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/sekisaii/joyboy/blob/main/readme/css3.svg" width="80" alt="Logo"/>
   </div>
 </div>
 

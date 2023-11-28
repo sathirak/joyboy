@@ -1,4 +1,6 @@
+CREATE DATABASE moby_user;
 
+USE moby_user;
 
 -- Table: Moby_Users
 CREATE TABLE IF NOT EXISTS moby_users (
