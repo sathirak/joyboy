@@ -1,107 +1,3 @@
-:root {
-	--moby-brand: #5ebdbd;
-	--pri: #2d3748;
-	--tri: #2d3748;
-	--sec: #f5f5f5;
-}
-
-.Moby {
-	display: flex;
-	flex-direction: row;
-	align-items: stretch;
-}
-
-body {
-	color: var(--sec);
-}
-
-.Logo {
-	background-color: #e0f7fa;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 999px;
-	width: max-content;
-	margin: 2px;
-}
-
-.Logo img {
-	width: 100px;
-	height: 100px;
-}
-
-.Logo-Border {
-	border-color: transparent;
-	border: 5px dashed;
-	border-radius: 50%;
-	margin: 10px;
-	padding: 2px;
-	transition: all 0.3s ease;
-}
-
-.Moby ul {
-	list-style-type: disclosure-closed;
-	margin-inline-start: 10px;
-}
-
-.Moby h1 {
-	margin-left: 10px;
-}
-
-.Content {
-	flex: 1;
-	min-height: 100vh;
-	background-color: var(--sec);
-	color: var(--pri);
-	padding: 10px;
-}
-
-.Sidebar {
-	width: max-content;
-	min-height: 100vh;
-	background-color: var(--pri);
-	color: var(--sec);
-	border-radius: 0 10px 10px 0;
-}
-
-.Sidebar-Inner {
-	padding: 10px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.Sidebar-Links {
-	padding: 10px;
-	margin: 7px;
-	border-radius: 999px;
-	width: max-content;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	cursor: pointer;
-	transition: all 0.2s ease;
-}
-
-.Selected {
-	transform: scale(1.2);
-	background-color: var(--moby-brand);
-}
-
-.Selected img {
-	filter: brightness(1.5);
-}
-
-.Sidebar-Icon {
-	width: 20px;
-	height: 20px;
-}
-
-.Sidebar-Icon path {
-	fill: var(--sec);
-}
-
-
 /* Moby Component Styles */
 
 .Moby {
@@ -126,6 +22,92 @@ body {
 	--moby-ui-speed: 300ms;
 	--moby-ui-speed-trans: 200ms;
 	--moby-border: ;
+}
+
+.Moby {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+}
+
+body {
+	color: var(--moby-white);
+}
+
+.Moby-Sidebar-Logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 999px;
+	margin: 4px;
+	outline-offset: 3px;
+	width: max-content;
+}
+
+.Moby-Sidebar-Logo img {
+	width: clamp(40px, 4vw, 100px);
+	height: clamp(40px, 4vw, 100px);
+}
+
+.Moby-Sidebar-Logo-Border {
+	margin: 10px;
+	margin-top: 25px;
+}
+
+.Moby-Content {
+	flex: 1;
+	min-height: 100vh;
+	background-color: var(--moby-white);
+	color: var(--moby-font-color);
+	padding: 10px;
+}
+
+.Moby-Sidebar {
+	width: clamp(50px, 17vw, 120px);
+	min-height: 100vh;
+	background-color: var(--moby-font-color);
+	color: var(--moby-white);
+	border-radius: 0 10px 10px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Moby-Sidebar-Inner {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Moby-Sidebar-Links {
+	padding: 10px;
+	margin: 7px;
+	border-radius: 999px;
+	width: max-content;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.Moby-Selected {
+	transform: scale(1.2);
+	background-color: var(--moby-primary);
+}
+
+.Moby-Selected img {
+	filter: brightness(1.5);
+}
+
+.Moby-Sidebar-Icon {
+	width: 20px;
+	height: 20px;
+}
+
+.Moby-Sidebar-Icon path {
+	fill: var(--moby-white);
 }
 
 .Moby-Logo {
@@ -190,7 +172,6 @@ body {
 .Moby-Container-Between {
 	justify-content: space-between;
 }
-
 
 .Moby-Heading {
 	margin: 10px;
@@ -309,15 +290,15 @@ body {
 }
 
 .Moby-Credentials {
-    width: clamp(300px, 35vw, 400px);
-    outline: none;
-    border: none;
-    padding: 15px;
-    padding-inline: 25px;
-    border-radius: var(--border-round);
-    background-color: var(--mono-bril);
+	width: clamp(300px, 35vw, 400px);
+	outline: none;
+	border: none;
+	padding: 15px;
+	padding-inline: 25px;
+	border-radius: var(--border-round);
+	background-color: var(--mono-bril);
 	color: var(--moby-para-color);
-    font-size: large;
+	font-size: large;
 	font-weight: 600;
 	font-family: "Quicksand", system-ui;
 }
@@ -327,11 +308,11 @@ body {
 }
 
 .Moby-Icon-Block {
-    margin: 10px;
-    width: max-content;
-    height: max-content;
-    display: flex;
-    align-items: center;
+	margin: 10px;
+	width: max-content;
+	height: max-content;
+	display: flex;
+	align-items: center;
 }
 
 .Moby-Icon-Right {
@@ -353,7 +334,7 @@ body {
 	width: 15px;
 	height: 15px;
 	margin: 5px;
-	transition: all var(--moby-ui-speed) ease;	
+	transition: all var(--moby-ui-speed) ease;
 }
 
 .Moby-Icon-Medium {
@@ -362,26 +343,26 @@ body {
 	width: 35px;
 	height: 35px;
 	margin: 15px;
-	transition: all var(--moby-ui-speed) ease;	
+	transition: all var(--moby-ui-speed) ease;
 }
 
 .Moby-Icon-Wrapper {
 	background-color: var(--moby-white);
-    border-radius: 50%;
-    margin: 10px;
-    padding: 5px;
-    transition: all 0.3s ease;
+	border-radius: 50%;
+	margin: 10px;
+	padding: 5px;
+	transition: all 0.3s ease;
 }
 
 .Moby-Error-Log {
-    background-color: var(--moby-warn);
-    color: var(--moby-white);
-    padding: 1vw;
-    margin: 0.5vw;
-    max-width: 50vw;
-    line-break: anywhere;
-    height: max-content;
-    border-radius: var(--moby-border-radius);
+	background-color: var(--moby-warn);
+	color: var(--moby-white);
+	padding: 1vw;
+	margin: 0.5vw;
+	max-width: 50vw;
+	line-break: anywhere;
+	height: max-content;
+	border-radius: var(--moby-border-radius);
 	white-space: pre-wrap;
 }
 
@@ -496,11 +477,11 @@ body {
 /* Moby Dropdown Content */
 
 .Moby-Dropdown {
-    position: relative;
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-    margin: 10px;
+	position: relative;
+	display: flex;
+	align-items: stretch;
+	flex-direction: column;
+	margin: 10px;
 }
 
 .Moby-Dropdown-Heading {
@@ -573,18 +554,19 @@ body {
 	width: 45px;
 	height: 45px;
 }
+
 /* Moby Alert Content */
 
 .Moby-Alert {
-    position: fixed;
-    top: 0%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, 0%);
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
+	position: fixed;
+	top: 0%;
+	left: 50%;
+	width: 100%;
+	height: 100%;
+	transform: translate(-50%, 0%);
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
 }
 
 .Moby-Container-Alert {
@@ -595,11 +577,11 @@ body {
 }
 
 .Moby-Alert-Overlay {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0px;
-    background-color: var(--moby-white);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	background-color: var(--moby-white);
 	opacity: 0;
 	cursor: not-allowed;
 }
@@ -692,7 +674,6 @@ body {
 
 /* Moby StrInput */
 
-
 .Moby-StrInput {
 	outline: none;
 	font-family: inherit;
@@ -721,7 +702,7 @@ body {
 	top: 0em;
 	left: 1em;
 	font-weight: 500;
-	color: var(--moby-para-color);	
+	color: var(--moby-para-color);
 }
 
 .Moby-Left-enter {
@@ -734,7 +715,7 @@ body {
 }
 
 .Moby-Left-exit {
-    transform: translateX(0%);
+	transform: translateX(0%);
 }
 
 .Moby-Left-exit-active {
@@ -742,22 +723,20 @@ body {
 	transition: all var(--moby-ui-speed-trans) ease;
 }
 
-
 .Moby-Right-enter {
 	transform: translateX(110%);
-  }
-  
-  .Moby-Right-enter-active {
+}
+
+.Moby-Right-enter-active {
 	transform: translateX(0%);
 	transition: all var(--moby-ui-speed-trans) ease;
-  }
-  
-  .Moby-Right-exit {
-	transform: translateX(-110%); /* Change the exit direction */
-  }
-  
-  .Moby-Right-exit-active {
+}
+
+.Moby-Right-exit {
+	transform: translateX(-110%);
+}
+
+.Moby-Right-exit-active {
 	transform: translateX(-110%);
 	transition: all var(--moby-ui-speed-trans) ease;
-  }
-  
+}

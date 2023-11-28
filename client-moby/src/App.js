@@ -1,8 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate  } from 'react-router-dom';
+
 import Moby from './moby/Moby';
-import Auth from './moby/Moby_Auth';
+import MobyAuth from './moby/Moby_Auth';
 import {useAuth} from './AuthProvider';
+
+import Keiko from './keiko/Keiko';
+
 import './App.css';
 
 function App() {
@@ -17,8 +21,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={isAuth ? <Moby /> : <Navigate to="/Auth" />} />
-        <Route path="/Auth" element={<Auth />} />
+        <Route path="/Keiko" element={<Keiko />} />
+        {/* <Route path="/" element={isAuth ? <Moby /> : <Navigate to="/Auth" />} /> */}
+        <Route path="/" element={<Moby />} />
+        <Route path="/Auth" element={<MobyAuth />} />
       </Routes>
     </Router>
   );
