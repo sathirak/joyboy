@@ -25,6 +25,7 @@
 }
 
 .Active-Button {
+    transition: all var(--joy-speed-ui) ease;
     outline: 2px solid var(--joy-hue-smoke);
     outline-offset: 2px;
 }

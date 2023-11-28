@@ -8,16 +8,13 @@ function Element({ joydex, component }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log('Requested Keiko');
       try {
-        const response = await fetch(`/keiko/output/${joydex}`);
+        const response = await fetch(`/atlas/element-check/${joydex}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const fetchedData = await response.json();
         setData(fetchedData);
-        console.log(fetchedData);
-        console.log(fetchedData[0].title_spotlight);
 
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -25,21 +22,25 @@ function Element({ joydex, component }) {
     };
 
     fetchData();
-  }, [joydex]);
+  }, [joydex, component]);
+
 
   if (!data) {
     return <div>Loading...</div>;
   }
 
-  if (component === "Spotlight") {
+  let img;
 
-    const img = require(`../fakedata/img/img-1/202306-FOOD-1-spotlight.jpg`);
+  if (component === "Spotlight" && data && data.length > 0 && data[0]?.img_spotlight) {
+
+    img = data[0]?.img_spotlight;
+
     return (
-      <Link to="/your-route">
+      <Link to={data[0]?.keikodex}>
         <div className="Element">
           <div className={component + '-Component'}>
             <div className={component + '-Component-Flag'}></div>
-            <img className={component + '-Component-Img'} src={img} alt="Default" />
+            <img className={component + '-Component-Img'} src={require(`../fakedata/img/img-1/${img}.jpg`)} alt={data[0]?.name + ' at ' + data[0]?.location} />
             <div className={component + '-Component-Title'} >{data[0]?.title_spotlight}</div>
           </div>
         </div>
@@ -47,16 +48,16 @@ function Element({ joydex, component }) {
     );
   }
 
-  if (component === "Card") {
+  if (component === "Card" && data && data.length > 0 && data[0]?.img_spotlight) {
 
-    const img = require(`../fakedata/img/img-1/202306-FOOD-1-spotlight.jpg`);
+    img = data[0]?.img_card;
 
     return (
-      <Link to="/your-route">
-        <div className="Element">
+      <Link to={data[0]?.keikodex}>
+        <div className="Card">
           <div className={component + '-Component'}>
             <div className={component + '-Component-Flag'}></div>
-            <img className={component + '-Component-Img'} src={img} alt="Default" />
+            <img className={component + '-Component-Img'} src={require(`../fakedata/img/img-1/${img}.jpg`)} alt="Default" />
             <div className={component + '-Component-Title'} >{data[0]?.title_spotlight}</div>
           </div>
         </div>

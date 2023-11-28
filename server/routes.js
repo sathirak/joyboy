@@ -9,8 +9,8 @@ router.use('/hyperion', hyperion_route);
 const headliners_route = require('./headliners/headliners');
 router.use('/headliners', headliners_route);
 
-//keiko routing
-const keiko_route = require('./keiko/keiko_data');
-router.use('/keiko', keiko_route);
+//atlas routing
+const atlas_route = require('./atlas/atlas_webdata');
+router.use('/atlas', atlas_route);
 
 module.exports = router;
