@@ -8,7 +8,9 @@
       {
         "ignore": [
           "-webkit-tap-highlight-color",
-          "-ms-text-size-adjust"
+          "-ms-text-size-adjust",
+          "user-select",
+          "list-style-type: disclosure-closed"
         ]
       }
     ]

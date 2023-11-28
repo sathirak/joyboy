@@ -1,8 +1,24 @@
 
-.Error {
-    background-color: var(--orange);
-    padding: 10px;
+.Element {
+    color: #333333;
+}
+
+.Spotlight-Component {
+    display: flex;
+    align-items: flex-end;
+}
+
+.Spotlight-Component-Img {
+    width: clamp( 150px, 93vw, 1200px);
+    height: clamp( 180px, 50vw, 20vw);
+    border-radius: var(--joy-border-radius);
     margin: 10px;
-    width: max-content;
-    border-radius: var(--border-radius);
+    object-fit: cover;
+}
+
+.Spotlight-Component-Title {
+    color: var(--joy-hue-smoke);
+    font-weight: 600;
+    margin: 25px;
+    position: absolute;
 }
