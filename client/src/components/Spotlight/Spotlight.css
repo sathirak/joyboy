@@ -1,0 +1,30 @@
+.Spotlight {
+    margin: calc( 10px + clamp(50px, 50px, 100px));
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.Spotlight-Button-Container {
+    display: flex;
+    width: clamp( 150px, 93vw, 1000px);
+    position: absolute;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+    margin-right: 10px;
+}
+
+.Spotlight-Button {
+    cursor: pointer;
+    background-color: var(--joy-hue-smoke);
+    width: clamp(10px, 1.5vw, 25px);
+    height: clamp(10px, 1.5vw, 25px);
+    border-radius: var(--joy-border-round);
+    margin-inline: 15px;
+    transition: all var(--joy-speed-ui) ease;
+}
+
+.Active-Button {
+    outline: 2px solid var(--joy-hue-smoke);
+    outline-offset: 2px;
+}

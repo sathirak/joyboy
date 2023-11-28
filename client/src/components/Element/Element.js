@@ -1,37 +1,70 @@
-import React, { Component } from "react";
+import React, {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import "./Element.css";
 
-const type_list = ["Spotlight", "type2", "type3"];
-const subtype_list = ["subtype1", "subtype2", "subtype3"];
-const flag_list = ["flag1", "flag2", "flag3"];
+function Element({ joydex, component }) {
 
-const FallbackElement = ({ unrecog_props, component }) => (
-  <div className="Error" title={`"${unrecog_props.join(', ')}" is unrecognized! Please provide valid props to component ${component}!`}>
-    Unexpected Joyerror: 001
-  </div>
-);
+  const [data, setData] = useState([null]);
 
-class Element extends Component {
-  render() {
-    const { joydex, type, subtype, flag, component } = this.props;
-    const unrecog_array = [];
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log('Requested Keiko');
+      try {
+        const response = await fetch(`/keiko/output/${joydex}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const fetchedData = await response.json();
+        setData(fetchedData);
+        console.log(fetchedData);
+        console.log(fetchedData[0].title_spotlight);
 
-    [type, subtype, flag].forEach((prop, index) => {
-      if (!type_list.includes(prop) && !subtype_list.includes(prop) && !flag_list.includes(prop)) {
-        unrecog_array.push(prop);
+      } catch (error) {
+        console.error('Error fetching data:', error);
       }
-    });
+    };
 
-    if (unrecog_array.length > 0) {
-      return <FallbackElement unrecog_props={unrecog_array} component={component} />;
-    }
+    fetchData();
+  }, [joydex]);
 
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
+  if (component === "Spotlight") {
+
+    const img = require(`../fakedata/img/img-1/202306-FOOD-1-spotlight.jpg`);
     return (
-      <div id={joydex} className={type + subtype + flag}>
-      </div>
+      <Link to="/your-route">
+        <div className="Element">
+          <div className={component + '-Component'}>
+            <div className={component + '-Component-Flag'}></div>
+            <img className={component + '-Component-Img'} src={img} alt="Default" />
+            <div className={component + '-Component-Title'} >{data[0]?.title_spotlight}</div>
+          </div>
+        </div>
+      </Link>
     );
   }
+
+  if (component === "Card") {
+
+    const img = require(`../fakedata/img/img-1/202306-FOOD-1-spotlight.jpg`);
+
+    return (
+      <Link to="/your-route">
+        <div className="Element">
+          <div className={component + '-Component'}>
+            <div className={component + '-Component-Flag'}></div>
+            <img className={component + '-Component-Img'} src={img} alt="Default" />
+            <div className={component + '-Component-Title'} >{data[0]?.title_spotlight}</div>
+          </div>
+        </div>
+      </Link>
+    );
+  }
+
+  return null;
 }
 
 export default Element;
-

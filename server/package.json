@@ -1,0 +1,41 @@
+{
+  "name": "joyboy",
+  "version": "1.0.0",
+  "description": "A system for to simplify enjoying the great outdoors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon --env-file=.env server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sekisaii/joyboy.git"
+  },
+  "author": "sekisaii, sekiko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sekisaii/joyboy/issues"
+  },
+  "homepage": "https://github.com/sekisaii/joyboy#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dom": "^0.0.3",
+    "express": "^4.18.2",
+    "express-mysql-session": "^3.0.0",
+    "express-rate-limit": "^7.1.4",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.6.3",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "react": "^18.2.0",
+    "react-router-dom": "^6.17.0",
+    "router": "^1.3.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
