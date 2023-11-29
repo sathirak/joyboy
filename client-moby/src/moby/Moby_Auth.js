@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {useAuth} from '../AuthProvider';
 import "./Moby.css";
 import Logo from "./Moby.svg";
+import MobyAlert from './moby_components/Moby_Alert';
 
 function Auth() {
 
@@ -15,11 +16,17 @@ function Auth() {
   const [go, setGo] = useState(false);
   const [helperText, setHelperText] = useState(false);
 
+  const [alert_signal, set_alert_signal] = useState(false);
+  const [alert_message, set_alert_message] = useState(false);
+  const [alert_type, set_alert_type] = useState(false);
+
   const navigate = useNavigate();
+
 
   const searchUser = async (value) => {
 
     setIsUser(false);
+
 
     try {
       const response = await fetch(`/hyperion/check/${value}`);
@@ -31,7 +38,8 @@ function Auth() {
       }
 
       if (data.exists !== false) {
-        setIsUser(true);
+        setIsUser(true);       
+
       } else {
         setIsUser(false);
       }
@@ -41,6 +49,8 @@ function Auth() {
   };
 
   const handleGo = async () => {
+
+    set_alert_signal(false);
 
     if (user && isuser && password) {
       
@@ -63,18 +73,19 @@ function Auth() {
         
 
         const data = await response.json();
-        
-        setHelperText(data.message);   
+
+
+
 
         if (data.status !== false) {
+          set_alert_type('Success');
           fetchAuth();
-          
         } else {
-
+          set_alert_type('Warn');
         }
-        setIsUser(false);
-        setPassword(null);
-        setUser(null);
+
+        set_alert_message(data.message);
+        set_alert_signal(true);
         
       } catch (error) {
         console.error('Error fetching user data:', error.message);
@@ -83,6 +94,12 @@ function Auth() {
 
     } else if (isuser) {
       setGo(true);
+    } else {
+
+      set_alert_message('Username not found :(');
+      set_alert_type('Warn');
+      set_alert_signal(true);
+      
     }
     
   };
@@ -103,6 +120,7 @@ function Auth() {
 
   return (
     <div  className='Moby Moby-Container-Page Moby-Container-Column Moby-Container-Center '>
+      <MobyAlert signal={alert_signal} message={alert_message} type={alert_type} closeable={true}/>
       <div  className="Moby-Logo Moby-Logo-Medium">
         <img src={Logo} alt="Logo of Moby Software" />
       </div>
@@ -123,7 +141,7 @@ function Auth() {
 
 
         <CSSTransition in={go === true} timeout={{ enter: 200, exit: 0 }} classNames="Moby-Right" unmountOnExit appear>
-          <input placeholder='Password' type='text' className='Moby-Credentials' onChange={(e) => handlePassword(e.target.value)} spellCheck='false' onKeyPress={handleKeyPress} autoFocus={true} aria-label="Enter your password"/>
+          <input placeholder='Password' type='password' className='Moby-Credentials' onChange={(e) => handlePassword(e.target.value)} spellCheck='false' onKeyPress={handleKeyPress} autoFocus={true} aria-label="Enter your password"/>
         </CSSTransition>
 
         <svg xmlns="http://www.w3.org/2000/svg" id="arrow-circle-down" viewBox="0 0 24 24" width="512" height="512" className='Moby-Icon-Medium Moby-Icon-Dark Moby-Icon-Right' onClick={handleGo}>

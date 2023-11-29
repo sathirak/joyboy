@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Dropdown, Toggle, TableMaker, Alert, StrInput, Popup } from "../moby_components/Moby_Components";
+import { Dropdown, Toggle, TableMaker, StrInput, Popup } from "../moby_components/Moby_Components";
 
 
 
 function Breadboard() {
 	const [selectedTable, setSelectedTable] = useState(null);
 	const [selectedQuery, setSelectedQuery] = useState("Sort by Joypoints");
-	const [activeQuery, setActiveQuery] = useState(null);
 	const [dropdownOptions, setDropdownOptions] = useState([]);
 	const [switchState, setSwitchState] = useState(false);
 	const [inspectState, setInspectState] = useState(false);

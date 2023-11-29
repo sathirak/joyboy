@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(null);
 
   const fetchAuth = async () => {
-    console.log('fetchauth called');
     try {
       const response = await fetch('/hyperion/status', {
         method: 'GET',
@@ -18,7 +17,6 @@ export const AuthProvider = ({ children }) => {
       });
       const data = await response.json();
       setIsAuth(data.status);
-      console.log('receving data',data.status, 'set data', isAuth);
     } catch (error) {
       console.error('Error fetching status:', error);
       setIsAuth(false);

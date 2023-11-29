@@ -63,8 +63,6 @@ const credentials = {usernameField: "uname",passwordField: "pw" };
 
 const verify_callback = (username, password, done) => {
 
-	console.log('credentials used to login', username, password);
-
 	conn_moby_user.query("SELECT * FROM moby_users WHERE moby_name = ?", [username], function (error, results, fields) {
 
 		if (error) {
@@ -105,7 +103,6 @@ const verify_callback = (username, password, done) => {
 			}
 
 			if (isValid) {
-				console.log('Login');
 				return done(null, user);
 
 			} else {
@@ -175,7 +172,7 @@ router.post("/register", async (req, res, next) => {
 
     try {
 
-        const Hyperion_Reg_Response = await hyperion_reg.Run_Hyperion_Reg(uname, pw, type, req.ip, 'arthur' );
+        const Hyperion_Reg_Response = await hyperion_reg.Run_Hyperion_Reg(uname, pw, type, req.ip, req.user.mobydex );
 
         res.send(Hyperion_Reg_Response);
 
@@ -193,7 +190,7 @@ router.post("/login", (req, res, next) => {
 		return res.status(500).json({ status: false, message: 'There was an internal server error' });
 	  }
 	  if (!user) {
-		return res.status(200).json({ status: false, message: 'Login was unsuccessful' });
+		return res.status(200).json({ status: false, message: 'Your password is incorrect :(' });
 	  }
 	  req.logIn(user, (loginErr) => {
 		if (loginErr) {
