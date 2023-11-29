@@ -5,19 +5,27 @@ import Element from "../Element/Element";
 const data = ['202306-FOOD-1', '202306-FOOD-2', '202306-FOOD-3'];
 
 function Spotlight() {
+	
 	const [currentIndex, setCurrentIndex] = useState(0);
+	const [intervalId, setIntervalId] = useState(null);
 
 	const handleClick = (index) => {
-	  setCurrentIndex(index);
-	};
-
-	useEffect(() => {
-	  let intervalId = setInterval(() => {
-		setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
-	  }, 15000);
-
-	  return () => clearInterval(intervalId);
-	}, []);
+		setCurrentIndex(index);
+		clearInterval(intervalId);
+		const newIntervalId = setInterval(() => {
+		  setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
+		}, 15000);
+		setIntervalId(newIntervalId);
+	  };
+	
+	  useEffect(() => {
+		const newIntervalId = setInterval(() => {
+		  setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
+		}, 15000);
+		setIntervalId(newIntervalId);
+	
+		return () => clearInterval(newIntervalId);
+	  }, []);
 
 	return (
 		<div className="Spotlight">

@@ -1,4 +1,6 @@
+CREATE DATABASE moby_user;
 
+USE moby_user;
 
 -- Table: Moby_Users
 CREATE TABLE IF NOT EXISTS moby_users (
@@ -89,14 +91,14 @@ CREATE TABLE IF NOT EXISTS keiko_minor (
 
 INSERT INTO keiko_minor (keikodex, name, location, delivery, rating, offer_type, offer_text, img_card, img_spotlight, title_spotlight) 
 VALUES
-('202306-FOOD-1', 'Leesh Cafe', 'Nugegoda, Colombo', true, 4.5, 1, '25% off on selected food', '202306-FOOD-1-card.jpg', '202306-FOOD-1-spotlight.jpg', 'Enjoy the finest luxuries of a cafe...'),
-('202306-FOOD-2', 'Tasty Bites', 'Mount Lavinia, Colombo', true, 4.2, 2, 'Buy one get one free on appetizers', '202306-FOOD-2-card.jpg', '202306-FOOD-2-spotlight.jpg', 'Savor the flavors that delight!'),
-('202306-FOOD-3', 'Spice Fusion', 'Dehiwala-Mount Lavinia, Colombo', true, 4.7, 1, 'Free dessert with every main course', '202306-FOOD-3-card.jpg', '202306-FOOD-3-spotlight.jpg', 'A fusion of spices for your palate'),
-('202306-FOOD-4', 'Ocean Delights', 'Wellawatte, Colombo', true, 4.0, 3, '15% off on seafood platters', '202306-FOOD-4-card.jpg', '202306-FOOD-4-spotlight.jpg', 'Dive into the freshness of the sea'),
-('202306-FOOD-5', 'Green Garden Cafe', 'Battaramulla, Colombo', true, 4.4, 2, 'Free coffee refill with every breakfast order', '202306-FOOD-5-card.jpg', '202306-FOOD-5-spotlight.jpg', 'Where freshness meets relaxation'),
-('202306-FOOD-6', 'Flavorsome Delights', 'Rajagiriya, Colombo', true, 4.6, 1, '20% off on all pasta dishes', '202306-FOOD-6-card.jpg', '202306-FOOD-6-spotlight.jpg', 'Indulge in flavorful experiences'),
-('202306-FOOD-7', 'Sizzle House', 'Kollupitiya, Colombo', true, 4.3, 2, 'Free drink with every steak order', '202306-FOOD-7-card.jpg', '202306-FOOD-7-spotlight.jpg', 'Where steaks sizzle with perfection'),
-('202306-FOOD-8', 'Mango Tree Bistro', 'Borella, Colombo', true, 4.8, 1, '10% off on all vegetarian meals', '202306-FOOD-8-card.jpg', '202306-FOOD-8-spotlight.jpg', 'A taste of nature’s goodness'),
-('202306-FOOD-9', 'Spicy Bite', 'Kirulapana, Colombo', true, 4.1, 3, 'Free appetizer with every order over $30', '202306-FOOD-9-card.jpg', '202306-FOOD-9-spotlight.jpg', 'Ignite your taste buds'),
-('202306-FOOD-10', 'Zenith Diner', 'Kotte, Colombo', true, 4.9, 1, 'Buy two desserts, get one free', '202306-FOOD-10-card.jpg', '202306-FOOD-10-spotlight.jpg', 'Elevating your dining experience'),
-('202306-FOOD-11', 'Flourish Bakery', 'Pamankada, Colombo', true, 4.5, 2, 'Free pastry with every sandwich purchase', '202306-FOOD-11-card.jpg', '202306-FOOD-11-spotlight.jpg', 'Where freshness is baked into every bite');
+('202306-FOOD-1', 'Leesh Cafe', 'Nugegoda, Colombo', true, 4.5, 1, '25% off on selected food', '202306-FOOD-1-card', '202306-FOOD-1-spotlight', 'Enjoy the finest luxuries of a cafe...'),
+('202306-FOOD-2', 'Tasty Bites', 'Mount Lavinia, Colombo', true, 4.2, 2, 'Buy one get one free on appetizers', '202306-FOOD-2-card', '202306-FOOD-2-spotlight', 'Savor the flavors that delight!'),
+('202306-FOOD-3', 'Spice Fusion', 'Dehiwala-Mount Lavinia, Colombo', true, 4.7, 1, 'Free dessert with every main course', '202306-FOOD-3-card', '202306-FOOD-3-spotlight', 'A fusion of spices for your palate'),
+('202306-FOOD-4', 'Ocean Delights', 'Wellawatte, Colombo', true, 4.0, 3, '15% off on seafood platters', '202306-FOOD-4-card', '202306-FOOD-4-spotlight', 'Dive into the freshness of the sea'),
+('202306-FOOD-5', 'Green Garden Cafe', 'Battaramulla, Colombo', true, 4.4, 2, 'Free coffee refill with every breakfast order', '202306-FOOD-5-card', '202306-FOOD-5-spotlight', 'Where freshness meets relaxation'),
+('202306-FOOD-6', 'Flavorsome Delights', 'Rajagiriya, Colombo', true, 4.6, 1, '20% off on all pasta dishes', '202306-FOOD-6-card', '202306-FOOD-6-spotlight', 'Indulge in flavorful experiences'),
+('202306-FOOD-7', 'Sizzle House', 'Kollupitiya, Colombo', true, 4.3, 2, 'Free drink with every steak order', '202306-FOOD-7-card', '202306-FOOD-7-spotlight', 'Where steaks sizzle with perfection'),
+('202306-FOOD-8', 'Mango Tree Bistro', 'Borella, Colombo', true, 4.8, 1, '10% off on all vegetarian meals', '202306-FOOD-8-card', '202306-FOOD-8-spotlight', 'A taste of nature’s goodness'),
+('202306-FOOD-9', 'Spicy Bite', 'Kirulapana, Colombo', true, 4.1, 3, 'Free appetizer with every order over $30', '202306-FOOD-9-card', '202306-FOOD-9-spotlight', 'Ignite your taste buds'),
+('202306-FOOD-10', 'Zenith Diner', 'Kotte, Colombo', true, 4.9, 1, 'Buy two desserts, get one free', '202306-FOOD-10-card', '202306-FOOD-10-spotlight', 'Elevating your dining experience'),
+('202306-FOOD-11', 'Flourish Bakery', 'Pamankada, Colombo', true, 4.5, 2, 'Free pastry with every sandwich purchase', '202306-FOOD-11-card', '202306-FOOD-11-spotlight', 'Where freshness is baked into every bite');
