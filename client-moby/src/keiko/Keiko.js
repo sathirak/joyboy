@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import {SidebarButton} from './keiko-icons/';
+import {SidebarButton} from './keiko-icons/sidebar_button.svg';
 import './Keiko.css';
 
 function Keiko() {
