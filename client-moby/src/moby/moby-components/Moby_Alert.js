@@ -1,8 +1,6 @@
 import React from "react";
-import { useState } from "react";
 
 const Moby_Alert = ({ signal, message, type, closeable, close_funct, link }) => {
-	const [showPopup, setShowPopup] = useState(true);
 
 	const closePopup = () => {
 		close_funct();
@@ -10,8 +8,7 @@ const Moby_Alert = ({ signal, message, type, closeable, close_funct, link }) => 
 
 	return (
 		<>
-        {signal && (<>
-			{showPopup && (
+        {signal && (
 				<a className="Moby-Alert" href={link} >
 					<div className={'Moby-Container-Alert Moby-' + type }>
 						{message}
@@ -22,8 +19,8 @@ const Moby_Alert = ({ signal, message, type, closeable, close_funct, link }) => 
 							</svg>
 						)}
 					</div>
+					<div className="Moby-Alert-Overlay" onClick={closePopup} ></div>
 				</a>
-			)}</>
 
             )}
 		</>

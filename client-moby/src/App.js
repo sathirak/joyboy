@@ -22,8 +22,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/Keiko" element={<Keiko />} />
-        {/* <Route path="/" element={isAuth ? <Moby /> : <Navigate to="/Auth" />} /> */}
-        <Route path="/" element={<Moby />} />
+        <Route path="/" element={isAuth ? <Moby /> : <Navigate to="/Auth" />} />
+        {/* <Route path="/" element={<Moby />} /> */}
         <Route path="/Auth" element={<MobyAuth />} />
       </Routes>
     </Router>

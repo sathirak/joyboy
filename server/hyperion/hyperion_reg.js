@@ -172,13 +172,23 @@ async function Run_Hyperion_Reg(Moby_Name, Moby_Pass, Moby_Type, Registrar_IP, R
 
 		  await query_runner(insertion_query_moby_users);
 		  await query_runner(insertion_query_moby_registration);
-		  const updated_row = await query_runner(`SELECT * FROM mobydex WHERE Mobydex = '${Mobydex}';`);
+
+		  const updated_row_moby_users = await query_runner(`SELECT * FROM moby_users WHERE mobydex = '${Mobydex}';`);
+
+		  const updated_row_moby_registration = await query_runner(`SELECT * FROM moby_users WHERE mobydex = '${Mobydex}';`);
 
 		  console.log( "|| Success Run_Hyperion_Reg=> Mobydex entry inserted successfully");
-		  console.log(updated_row,);
-		  let message = ( "|| Success Run_Hyperion_Reg=> Mobydex entry inserted successfully", updated_row);
+		  console.log(updated_row_moby_users, updated_row_moby_registration);
 
-		  return(message);
+		  const parsed_row_moby_users = JSON.parse(JSON.stringify(updated_row_moby_users));
+		  const parsed_row_moby_registration = JSON.parse(JSON.stringify(updated_row_moby_registration));
+		  
+		  const message = JSON.stringify({
+			updated_row_moby_users: parsed_row_moby_users,
+			updated_row_moby_registration: parsed_row_moby_registration
+		  });
+		  
+		  return message;
 
 		}
 

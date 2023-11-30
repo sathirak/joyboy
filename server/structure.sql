@@ -29,18 +29,22 @@ CREATE TABLE IF NOT EXISTS moby_registration (
 );
 
 -- Table: Moby_Login
-CREATE TABLE IF NOT EXISTS moby_login (
-  serial_number INT PRIMARY KEY AUTO_INCREMENT,
-  mobydex VARCHAR(50) UNIQUE NOT NULL,
-  login_barred BOOLEAN,
-  current_attempt INT DEFAULT 0,
-  last_login_attempt TIMESTAMP,
-  last_login_attempt_ip VARCHAR(50),
-  last_login_attempt_status VARCHAR(50),
-  last_successful_login TIMESTAMP,
-  last_failed_login TIMESTAMP,
-  FOREIGN KEY (mobydex) REFERENCES moby_users(mobydex) ON DELETE CASCADE ON UPDATE CASCADE
-);
+CREATE TABLE moby_login (
+  serial_number int NOT NULL AUTO_INCREMENT,
+  mobydex varchar(50) NOT NULL,
+  login_barred tinyint(1) DEFAULT NULL,
+  current_attempt int DEFAULT '0',
+  login_code varchar(45) DEFAULT NULL,
+  last_login_attempt timestamp NULL DEFAULT NULL,
+  last_login_attempt_ip varchar(50) DEFAULT NULL,
+  last_login_attempt_status varchar(50) DEFAULT NULL,
+  last_successful_login timestamp NULL DEFAULT NULL,
+  last_failed_login timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (serial_number),
+  UNIQUE KEY mobydex (mobydex),
+  KEY idx_mobydex_login (mobydex),
+  FOREIGN KEY (mobydex) REFERENCES moby_users (mobydex) ON DELETE CASCADE ON UPDATE CASCADE
+) 
 
 -- Table: Moby_Allowed
 CREATE TABLE IF NOT EXISTS moby_allowed (
