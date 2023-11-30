@@ -1,25 +1,30 @@
 import React, { useState, useEffect, Suspense } from "react";
 import Settings from "./Moby_Settings";
 import "./Moby.css";
-
 import Logo from "./Moby.svg";
 
+//These two arrays should be defined from a database, this is a temperory solution
 const permitted_moby_modules = ["Breadboard", "Dashboard", "Analytics", "Template", "Registrar"];
 const startup_moby_module = ["Template"];
+
 const icons = {};
 
+//This loop loads all the module icons permitted_moby_modules
 permitted_moby_modules.forEach((moby_module) => {
   icons[moby_module] = require(`./moby-module-icons/${moby_module}.svg`);
 });
 
 function Moby() {
 
+  //state for the currently active modules' component
   const [activeModule, setActiveModule] = useState(null);
+
+  //state for the currently active module sidebar icon
   const [activeLink, setActiveLink] = useState(null);
 
+  //handles the sidebar link click, checks if the module is allowed and then loads it
   const handle_module = (moby_module) => {
     
-
     if (permitted_moby_modules.includes(moby_module)) {
       const Component = React.lazy(() => import(`./moby-modules/${moby_module}`));
       setActiveModule(<Component />);
@@ -30,11 +35,13 @@ function Moby() {
 
   };
 
+  //handles the settings click
   const toggle_settings = () => {
     setActiveModule(<Settings />);
     setActiveLink("Settings");
   };
 
+  //empty useeffect to load the users favourite module on startup
   useEffect(() => {
     handle_module(startup_moby_module[0]);
   }, []);

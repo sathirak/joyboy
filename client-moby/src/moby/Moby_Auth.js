@@ -4,29 +4,34 @@ import { useNavigate } from 'react-router-dom';
 import {useAuth} from '../AuthProvider';
 import "./Moby.css";
 import Logo from "./Moby.svg";
-import MobyAlert from './moby_components/Moby_Alert';
+import MobyAlert from './moby-components/Moby_Alert';
 
 function Auth() {
 
+  //Authentication confirmation state from AuthProvider
   const {isAuth, fetchAuth} = useAuth();
 
+  //username storage state
   const [user, setUser] = useState(null);
-  const [isuser, setIsUser] = useState(false);
-  const [password, setPassword] = useState(false);
-  const [go, setGo] = useState(false);
-  const [helperText, setHelperText] = useState(false);
 
-  const [alert_signal, set_alert_signal] = useState(false);
+  //username confirmation state
+  const [isuser, setIsUser] = useState(false);
+
+  //passsword storage state
+  const [password, setPassword] = useState(false);
+
+  //state for the ▶ button
+  const [go, setGo] = useState(false);
+
+  //alert states to signal user for successful & unsuccessful logging in & no user found
   const [alert_message, set_alert_message] = useState(false);
   const [alert_type, set_alert_type] = useState(false);
 
   const navigate = useNavigate();
 
-
   const searchUser = async (value) => {
 
     setIsUser(false);
-
 
     try {
       const response = await fetch(`/hyperion/check/${value}`);
@@ -52,10 +57,10 @@ function Auth() {
 
     set_alert_signal(false);
 
+
+    //If user is confirmed by searchUser and when password is entered by user
     if (user && isuser && password) {
       
-      setHelperText(null);
-
       const credentials = { uname: user, pw: password };
       try {
         const response = await fetch('hyperion/login', {
@@ -70,12 +75,7 @@ function Auth() {
           throw new Error('Network response was not ok');
         }
 
-        
-
         const data = await response.json();
-
-
-
 
         if (data.status !== false) {
           set_alert_type('Success');
@@ -91,9 +91,11 @@ function Auth() {
         console.error('Error fetching user data:', error.message);
       }
 
-
+      //If user is only set by searchUser when user enters username
     } else if (isuser) {
       setGo(true);
+
+      //When no user was found by searchUser when user enters username
     } else {
 
       set_alert_message('Username not found :(');
@@ -104,16 +106,19 @@ function Auth() {
     
   };
 
+  //This handles the entering of password value
   const handlePassword = (value) => {
     setPassword(value);
   }
 
+  //This handles the enterkey
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       handleGo();
     }
   };
 
+  //when isAuth is set it means the password, username  was confirmed by the server
   if (isAuth){
     navigate('/');
   }
@@ -126,9 +131,9 @@ function Auth() {
       </div>
 
       {go === true ? (
-        <h2 className='Moby-Heading'>Password ???</h2>
+        <h2 className='Moby-Heading'>Password</h2>
       ) : (
-        <h2 className='Moby-Heading'>Username ???</h2>
+        <h2 className='Moby-Heading'>Username</h2>
       )}
 
 
@@ -138,8 +143,6 @@ function Auth() {
           <input placeholder='Username' type='text' className='Moby-Credentials' onChange={(e) => {setUser(e.target.value);searchUser(e.target.value);}} spellCheck='false' onKeyPress={handleKeyPress} autoFocus={true} aria-label="Enter your username" />
         </CSSTransition>
 
-
-
         <CSSTransition in={go === true} timeout={{ enter: 200, exit: 0 }} classNames="Moby-Right" unmountOnExit appear>
           <input placeholder='Password' type='password' className='Moby-Credentials' onChange={(e) => handlePassword(e.target.value)} spellCheck='false' onKeyPress={handleKeyPress} autoFocus={true} aria-label="Enter your password"/>
         </CSSTransition>
@@ -148,8 +151,6 @@ function Auth() {
           <path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm16,0a2.993,2.993,0,0,1-.752,1.987c-.291.327-.574.637-.777.84L11.647,17.7a1,1,0,1,1-1.426-1.4L13.05,13.42c.187-.188.441-.468.7-.759a1,1,0,0,0,0-1.323c-.258-.29-.512-.57-.693-.752L10.221,7.7a1,1,0,1,1,1.426-1.4l2.829,2.879c.2.2.48.507.769.833A2.99,2.99,0,0,1,16,12Z" />
         </svg>
       </div>
-
-          <h4 className='Moby-Heading'>{helperText}</h4>
 
       {go === true ? (
         <a className='Moby-Link' href='/forgot'>

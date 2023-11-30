@@ -1,3 +1,4 @@
+
 /* Moby Component Styles */
 
 .Moby {
@@ -24,14 +25,12 @@
 	--moby-border: ;
 }
 
+/* Moby main page CSS */
+
 .Moby {
 	display: flex;
 	flex-direction: row;
 	align-items: stretch;
-}
-
-body {
-	color: var(--moby-white);
 }
 
 .Moby-Sidebar-Logo {
@@ -109,6 +108,8 @@ body {
 .Moby-Sidebar-Icon path {
 	fill: var(--moby-white);
 }
+
+/* Moby component stuff */
 
 .Moby-Logo {
 	background-color: #e0f7fa;

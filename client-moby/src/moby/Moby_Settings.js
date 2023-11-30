@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useAuth} from '../AuthProvider';
-import MobyAlert from './moby_components/Moby_Alert';
+import MobyAlert from './moby-components/Moby_Alert';
 
 function Settings() {
 
@@ -18,8 +18,10 @@ function Settings() {
       method: 'GET',
       credentials: 'include',
     })
+
       .then((response) => response.text())
       .then((data) => {
+
         fetchAuth();
 
         set_alert_message(data);
