@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from 'react';
 
-import { Dropdown, Tab, Popup, Toggle, StrInput } from "../moby_components/Moby_Components";
+import { Dropdown, Tab, Popup, Toggle, StrInput } from "../moby-components/Moby_Components";
 
 
 function Template() {
@@ -74,7 +74,7 @@ function Template() {
         closebutton={false}
       />
       <Toggle label="Toggle Switch" onToggle={handleSwitchToggle} onColor={"var(--moby-error)"} offColor={"var(--moby-disable)"}/>
-      <div className="Moby-Spacer" style={{ height: 'clamp(20px, 4vh, 50px)' }}></div>
+      <div className="Moby-Spacer" style={{ height: 'clamp(20px, 4vh, 50px)' }}>{switchState}</div>
       <div className="Moby-Spacer" style={{ height: 'clamp(20px, 4vh, 50px)' }}></div>
       <StrInput placeholder="Enter your text" label="Your Label" help="Help text goes here" model="blue" type="text" enter={true} max={50} />
     </div>

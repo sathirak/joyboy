@@ -33,9 +33,14 @@ function Settings() {
         console.error('Error fetching status:', error);
       });
   }
+
+  const alert_switch = () => {
+    set_alert_signal(false);
+  }
+
     return (
       <div>
-        <MobyAlert signal={alert_signal} message={alert_message} type={alert_type} closeable={true}/>
+        <MobyAlert signal={alert_signal} message={alert_message} type={alert_type} closeable={true} close_funct={alert_switch} />
         <h1>Moby Settings</h1>
         <div className='Moby-Button' onClick={logout} >Logout</div>
       </div>

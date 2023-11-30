@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 
-const Moby_Alert = ({ signal, message, type, closeable, link }) => {
+const Moby_Alert = ({ signal, message, type, closeable, close_funct, link }) => {
 	const [showPopup, setShowPopup] = useState(true);
 
 	const closePopup = () => {
-		setShowPopup(false);
+		close_funct();
 	};
 
 	return (

@@ -7,6 +7,7 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
+  
   const [isAuth, setIsAuth] = useState(null);
 
   const fetchAuth = async () => {

@@ -15,7 +15,7 @@ function Auth() {
   const [user, setUser] = useState(null);
 
   //username confirmation state
-  const [isuser, setIsUser] = useState(false);
+  const [isuser, setIsUser] = useState(null);
 
   //passsword storage state
   const [password, setPassword] = useState(false);
@@ -24,6 +24,7 @@ function Auth() {
   const [go, setGo] = useState(false);
 
   //alert states to signal user for successful & unsuccessful logging in & no user found
+  const [alert_signal, set_alert_signal] = useState(false);
   const [alert_message, set_alert_message] = useState(false);
   const [alert_type, set_alert_type] = useState(false);
 
@@ -31,7 +32,7 @@ function Auth() {
 
   const searchUser = async (value) => {
 
-    setIsUser(false);
+    setIsUser(null);
 
     try {
       const response = await fetch(`/hyperion/check/${value}`);
@@ -45,11 +46,13 @@ function Auth() {
       if (data.exists !== false) {
         setIsUser(true);       
 
-      } else {
+      } else if (data.exists === false) {
         setIsUser(false);
       }
+
     } catch (error) {
-      console.error('Error fetching user data:', error.message);
+      console.error('Error fetching user checking data:', error.message);
+      setIsUser(null);
     }
   };
 
@@ -96,15 +99,25 @@ function Auth() {
       setGo(true);
 
       //When no user was found by searchUser when user enters username
-    } else {
+    } else if (isuser === false ){
 
       set_alert_message('Username not found :(');
       set_alert_type('Warn');
       set_alert_signal(true);
       
+      //Everything else, network issues and such
+    } else {
+      set_alert_message('An error occured, please check your network connection :(');
+      set_alert_type('Error');
+      set_alert_signal(true);
+
     }
     
   };
+
+  const alert_switch = () => {
+    set_alert_signal(false);
+  }
 
   //This handles the entering of password value
   const handlePassword = (value) => {
@@ -125,7 +138,7 @@ function Auth() {
 
   return (
     <div  className='Moby Moby-Container-Page Moby-Container-Column Moby-Container-Center '>
-      <MobyAlert signal={alert_signal} message={alert_message} type={alert_type} closeable={true}/>
+      <MobyAlert signal={alert_signal} message={alert_message} type={alert_type} closeable={true} close_funct={alert_switch}/>
       <div  className="Moby-Logo Moby-Logo-Medium">
         <img src={Logo} alt="Logo of Moby Software" />
       </div>
