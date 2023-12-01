@@ -7,6 +7,8 @@ var session = require("express-session");
 var MySQLStore = require("express-mysql-session")(session);
 const cookieparser = require('cookie-parser');
 const router = express.Router();
+const util = require('util');
+
 
 //Import the middleware and database connections
 const {conn_moby_user} = require('./hyperion_database');
@@ -103,12 +105,37 @@ const verify_callback = (username, password, done) => {
 			}
 
 			if (isValid) {
+
+				/* const login_query = `
+					UPDATE moby_login
+					SET last_successful_login = CURRENT_TIMESTAMP(),
+						last_login_attempt = CURRENT_TIMESTAMP(),
+						current_attempt = 0,
+						last_login_attempt_ip = '${req.ip}',
+						last_login_attempt_status = 'success'
+					WHERE mobydex = ?;
+				`;
+
+				conn_moby_user.query(login_query, [user.mobydex], (updateError, updateResults, updateFields) => {
+					if (updateError) {
+						console.log(updateError);
+					}
+				}); */
+
 				return done(null, user);
 
 			} else {
+
+			/*	conn_moby_user.query(login_query, [user.mobydex], (updateError, updateResults, updateFields) => {
+					if (updateError) {
+						console.log(updateError);
+					}
+				});		*/		
+
 				return done(null, false);
 
 			}
+
 		});
 	});
 };
@@ -164,7 +191,7 @@ router.get("/logout", Hyperion_Auth, (req, res) => {
     });
 });
 
-router.post("/register", async (req, res, next) => {
+router.post("/register", Hyperion_Auth, async (req, res, next) => {
 
     const { uname, pw, type } = req.body;
 
@@ -196,7 +223,6 @@ router.post("/login", (req, res, next) => {
 		if (loginErr) {
 		  return res.status(500).json({ status: false, message: 'There was an error logging in' });
 		}
-		// If login successful
 		return res.status(200).json({ status: true, message: 'Login successful' });
 	  });
 	})(req, res, next);
@@ -224,6 +250,119 @@ router.post("/login", (req, res, next) => {
     });
 }
 });
+
+router.get('/list/:username', (req, res) => {
+    const usernameToCheck = req.params.username;
+
+    if (usernameToCheck !== null) {
+        const searchTerm = `%${usernameToCheck}%`;
+
+        conn_moby_user.query("SELECT moby_name FROM moby_users WHERE moby_name LIKE ?", [searchTerm], function (error, results, fields) {
+            if (error) {
+                console.error(error);
+                return res.status(500).json({ error: 'Database error' });
+            }
+
+            if (results.length > 0) {
+                const search_results = results.map(result => result.moby_name);
+
+                return res.json({ search_results });
+            } else {
+                return res.json({ search_results: [] });
+            }
+        });
+    }
+});
+
+router.get('/list-all', (req, res) => {
+    conn_moby_user.query("SELECT moby_name FROM moby_users", function (error, results, fields) {
+        if (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Database error' });
+        }
+
+        if (results.length > 0) {
+            const search_results = results.map(result => result.moby_name);
+            return res.json({ search_results });
+        } else {
+            return res.json({ search_results: [] });
+        }
+    });
+});
+
+
+
+router.get('/manage/:username', async (req, res) => {
+    const requested_moby_name = req.params.username;
+
+    if (requested_moby_name !== null) {
+        try {
+			const mobydex_query = util.promisify(conn_moby_user.query).bind(conn_moby_user);
+            const mobydex_result = await mobydex_query(
+                "SELECT mobydex FROM moby_users WHERE moby_name = ?",
+                [requested_moby_name]
+            );
+
+			if (mobydex_result.length > 0) {
+                const mobydex_search = mobydex_result[0].mobydex;
+
+
+            const moby_users_query = util.promisify(conn_moby_user.query).bind(conn_moby_user);
+            const moby_users_result = await moby_users_query(
+                "SELECT * FROM moby_users WHERE moby_users.mobydex = ?",
+                [mobydex_search]
+            );
+
+            const moby_registration_query = util.promisify(conn_moby_user.query).bind(conn_moby_user);
+            const moby_registration_result = await moby_registration_query(
+                "SELECT * FROM moby_registration WHERE moby_registration.mobydex = ?",
+                [mobydex_search]
+            );
+
+            const moby_login_query = util.promisify(conn_moby_user.query).bind(conn_moby_user);
+            const moby_login_result = await moby_login_query(
+                "SELECT * FROM moby_login WHERE moby_login.mobydex = ?",
+                [mobydex_search]
+            );
+
+            const moby_allowed_query = util.promisify(conn_moby_user.query).bind(conn_moby_user);
+            const moby_allowed_result = await moby_allowed_query(
+                "SELECT * FROM moby_allowed WHERE moby_allowed.mobydex = ?",
+                [mobydex_search]
+            );
+
+            const moby_ip_query = util.promisify(conn_moby_user.query).bind(conn_moby_user);
+            const moby_ip_result = await moby_ip_query(
+                "SELECT * FROM moby_ip WHERE moby_ip.mobydex = ?",
+                [mobydex_search]
+            );
+
+            const combinedResult = {
+                users: moby_users_result,
+                registration: moby_registration_result,
+                login: moby_login_result,
+                allowed: moby_allowed_result,
+                ip: moby_ip_result
+            };
+
+            if (usersResult.length > 0) {
+                return res.json({ exists: true, data: combinedResult });
+            } else {
+                return res.json({ exists: false });
+            }
+
+		} else {
+			return res.json({ exists: false });
+		}
+
+        } catch (error) {
+            console.error('Error:', error);
+            return res.status(500).json({ error: 'An error occurred' });
+        }
+    }
+});
+
+
 
 
 router.get('/status', (req, res) => {

@@ -7,7 +7,8 @@ const Registrar = () => {
   const [pw, setPw] = useState('');
   const [type, setType] = useState('');
 
-  const [active_user, set_active_user] = useState('No user selected');
+  const [active_user, set_active_user] = useState(null);
+  const [user_list, set_user_list] = useState([]);
 
   const [isUser, setIsUser] = useState(null);
   const [error_log, set_error_log] = useState(null);
@@ -170,6 +171,82 @@ const Registrar = () => {
     }
   };
 
+  const handleUserListing = async (value) => {
+
+    if (value.trim() !== '') {
+      try {
+        const response = await fetch(`/hyperion/list/${value}`);
+        const data = await response.json();
+
+        set_user_list(data.search_results);
+
+      } catch (error) {
+
+        console.error('Error:', error);
+
+        set_alert_message('An error occured, please check your network connection :(' + error);
+        set_alert_type('Error');
+        set_alert_signal(true);
+
+      }
+    }
+
+  };
+
+  const handleAllUserListing = async () => {
+
+      try {
+        const response = await fetch(`/hyperion/list-all`);
+        const data = await response.json();
+
+        set_user_list(data.search_results);
+
+      } catch (error) {
+
+        console.error('Error:', error);
+
+        set_alert_message('An error occured, please check your network connection :(' + error);
+        set_alert_type('Error');
+        set_alert_signal(true);
+
+    }
+
+  };
+
+  const handleUserActivity = async (value) => {
+
+    set_active_user(value);
+    
+    if (value.trim() !== '') {
+      try {
+        const response = await fetch(`/hyperion/manage/${value}`);
+        const data = await response.json();
+
+        set_is_module_user(data.exists);
+
+
+        console.log(data.exists);
+
+        console.log(data.data.users);
+        console.log(data.data.registration);
+        console.log(data.data.login);
+        console.log(data.data.allowed);
+        console.log(data.data.ip);
+
+
+      } catch (error) {
+
+        console.error('Error:', error);
+
+        set_alert_message('An error occured, please check your network connection :(' + error);
+        set_alert_type('Error');
+        set_alert_signal(true);
+
+      }
+    }
+
+  };
+
   return (
     <div>
       <MobyAlert signal={alert_signal} message={alert_message} type={alert_type} closeable={true} close_funct={alert_switch} />
@@ -211,23 +288,23 @@ const Registrar = () => {
       <div className='Moby-Container Moby-Container-Stretch'>
         <h3 className='Moby-Heading'>Moby User Activity</h3>
 
-        <input placeholder='Username' className='Moby-StrInput' type="text" value={uname} onChange={(e) => handleCheckUsername(e.target.value)} spellCheck={false} />
-        <h6 className='Moby-Heading'>{isUser !== null && (<>{isUser ? (<span style={{color: 'var(--moby-error)', }}> username is not available ✕</span>) : 'username is available ✓'}</>)}</h6>
-
+        <input placeholder='Username' className='Moby-StrInput' type="text" onChange={(e) => handleUserListing(e.target.value)} spellCheck={false} />
         
-
-          <div className='Moby-Mini-Container Moby-Container-Row Moby-Container-Center'>
-
-            <h4 className='Moby-Heading'>{active_user}</h4>
-            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" fill='var(--moby-icon-dark)' className='Moby-Icon-Small'>
+        {user_list.map((username, index) => (
+          <div key={username} className='Moby-Mini-Container Moby-Container-Row Moby-Container-Center'>
+            <h4 className='Moby-Heading'>
+              {username}
+            </h4>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" fill='var(--moby-icon-dark)' className='Moby-Icon-Small' onClick={() => handleUserActivity(username)}>
               <path d="m23.737,5.48c-.131-.457-1.126-1.18-1.946-.36-.82.82-3.316,3.316-3.316,3.316-.787.787-2.074.764-2.853-.036-.799-.779-.824-2.067-.037-2.854,0,0,2.496-2.496,3.316-3.316.82-.82.097-1.815-.36-1.946-.748-.214-1.523-.308-2.317-.279-3.773.134-6.953,3.199-7.207,6.965-.045.665-.005,1.317.117,1.95.182.94-.163,1.905-.84,2.583L.87,18.906c-1.162,1.163-1.155,3.059-.007,4.231,1.172,1.149,3.068,1.156,4.231-.006l7.424-7.404c.677-.677,1.642-1.022,2.583-.84.633.122,1.285.162,1.95.117,3.767-.254,6.831-3.434,6.965-7.207.028-.794-.065-1.569-.279-2.317Z"/>
             </svg>
-
           </div>
+        ))}
+
 
           <div className='Moby-Container-Row' >
 
-          <div className='Moby-Button' onClick={handleRegister}>Show All Users</div>
+          <div className='Moby-Button' onClick={handleAllUserListing}>Show All Users</div>
           <div className='Moby-Button' onClick={handleRegister}>Show Banned Users</div>
 
         </div>
@@ -244,11 +321,6 @@ const Registrar = () => {
           <div className='Moby-Container'>
 
             <div className='Moby-Container-Row'>
-
-              <div className='Moby-Container-Column'>
-                <input placeholder='Username' className='Moby-StrInput' type="text" value={active_user} onChange={(e) => {handlePermissionUser(e.target.value);} } spellCheck={false} />
-                <h6 className='Moby-Heading'>{is_module_user !== null && (<>{is_module_user ? (<span style={{color: 'var(--moby-disable)', }}> user found!</span>) : (<span style={{color: 'var(--moby-error)', }}> no users found :( </span>)}</>)}</h6>
-              </div>
 
               <div class="Moby-Checkbox">
                 <input type="checkbox" id="module1" name="check" checked={module_permit.module1} onChange={handlePermissionChange} />

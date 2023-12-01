@@ -12,7 +12,7 @@ const conn_headliners = {
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: "headliners",
+  database: "moby_user",
 };
 
 const pool = mysql.createPool(conn_headliners);
@@ -42,7 +42,7 @@ router.get('/tables', async (req, res) => {
         console.error('Error fetching tables:', error);
         res.status(500).json({ error: 'Error fetching tables' });
       } else {
-        const tableNames = results.map((row) => row['Tables_in_headliners']);
+        const tableNames = results.map((row) => row['Tables_in_moby_user']);
         console.log(tableNames);
         res.json(tableNames);
       }

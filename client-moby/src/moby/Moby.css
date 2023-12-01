@@ -260,11 +260,12 @@
 }
 
 .Moby-Mini-Container {
-	background-color: var(--moby-offwhite);
-	margin: 0.5vw;
-	width: min-content;
-	height: max-content;
-	border-radius: var(--moby-border-radius);
+    background-color: var(--moby-offwhite);
+    margin: 0.5vw;
+    padding-inline: 10px;
+    width: min-content;
+    height: max-content;
+    border-radius: var(--moby-border-radius);
 }
 
 /* Checkbox CSS */

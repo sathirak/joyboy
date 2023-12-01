@@ -44,7 +44,7 @@ CREATE TABLE moby_login (
   UNIQUE KEY mobydex (mobydex),
   KEY idx_mobydex_login (mobydex),
   FOREIGN KEY (mobydex) REFERENCES moby_users (mobydex) ON DELETE CASCADE ON UPDATE CASCADE
-) 
+); 
 
 -- Table: Moby_Allowed
 CREATE TABLE IF NOT EXISTS moby_allowed (
