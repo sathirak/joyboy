@@ -11,7 +11,9 @@ const Moby_Alert = ({ signal, message, type, closeable, close_funct, link }) => 
         {signal && (
 				<a className="Moby-Alert" href={link} >
 					<div className={'Moby-Container-Alert Moby-' + type }>
+						<div className="Moby-Paragraph-Light" >
 						{message}
+						</div>
 						{closeable && (
 							<svg onClick={closePopup} style={{ marginLeft: '20px', width: '25px', height: '25px' }} fill="#f5f5f5" className="Moby-Icon-Small"
 								version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" width="512" height="512" >

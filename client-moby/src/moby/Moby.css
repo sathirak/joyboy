@@ -215,8 +215,8 @@
 	font-size: medium;
 	font-weight: 500;
 	margin: 5px;
-	width: max-content;
-	height: max-content;
+	width: fit-content;
+	height: fit-content;
 	color: var(--moby-white);
 }
 
@@ -259,6 +259,16 @@
 	border-radius: var(--moby-border-radius);
 }
 
+.Moby-Mini-Container {
+	background-color: var(--moby-offwhite);
+	margin: 0.5vw;
+	width: min-content;
+	height: max-content;
+	border-radius: var(--moby-border-radius);
+}
+
+/* Checkbox CSS */
+
 .Moby-Checkbox .checkbox {
 	display: table-cell;
 	width: 100%;
@@ -269,7 +279,8 @@
 
 .Moby-Checkbox label {
     display: flex;
-    color: var(--moby-sub-color);
+    color: var(--moby-primary-dark);
+    font-weight: 600;
     cursor: pointer;
     position: relative;
     margin: 10px;
@@ -284,7 +295,7 @@
     width: 30px;
     height: 30px;
     transform-origin: center;
-    border: 2px solid var(--moby-sub-color);
+    border: 2px solid var(--moby-primary-dark);
     border-radius: 50%;
     vertical-align: middle;
     margin-right: 10px;
@@ -296,7 +307,7 @@
 	width: 0px;
 	height: 2px;
 	border-radius: 2px;
-	background: var(--moby-sub-color);
+	background: var(--moby-primary-dark);
 	position: absolute;
 	transform: rotate(45deg);
 	top: 13px;
@@ -310,7 +321,7 @@
 	width: 0;
 	height: 2px;
 	border-radius: 2px;
-	background: var(--moby-sub-color);
+	background: var(--moby-primary-dark);
 	position: absolute;
 	transform: rotate(305deg);
 	top: 16px;
@@ -334,7 +345,7 @@
 }
 
 .Moby-Checkbox input[type="checkbox"]:checked + label span {
-	background-color: var(--moby-sub-color);
+	background-color: var(--moby-primary-dark);
 	transform: scale(1.25);
 }
 
@@ -351,7 +362,7 @@
 }
 
 .Moby-Checkbox input[type="checkbox"]:checked + label:hover span {
-	background-color: var(--moby-sub-color);
+	background-color: var(--moby-primary-dark);
 	transform: scale(1.25);
 }
 
@@ -366,6 +377,8 @@
 	background: var(--moby-icon-light);
 	transition: width 150ms ease 100ms;
 }
+
+/* Rest of the CSS stuff */
 
 .Moby-Button {
 	width: max-content;
@@ -487,15 +500,17 @@
 }
 
 .Moby-Error-Log {
-	background-color: var(--moby-disable);
-	color: var(--moby-white);
-	padding: 1vw;
-	margin: 0.5vw;
-	max-width: 50vw;
-	line-break: anywhere;
-	height: max-content;
-	border-radius: var(--moby-border-radius);
-	white-space: pre-wrap;
+    background-color: var(--moby-disable);
+    color: var(--moby-white);
+    padding: 1vw;
+    margin: 0.5vw;
+    max-width: 50vw;
+    line-break: anywhere;
+    height: max-content;
+    width: max-content;
+    min-width: 300px;
+    border-radius: var(--moby-border-radius);
+    white-space: pre-wrap;
 }
 
 /* Moby Table Content */
@@ -715,7 +730,6 @@
 	top: 0px;
 	background-color: var(--moby-white);
 	opacity: 0;
-	cursor: not-allowed;
 }
 
 .Moby-Alert-Paragraph {
@@ -810,15 +824,17 @@
 /* Moby StrInput */
 
 .Moby-StrInput {
-	outline: none;
-	font-family: inherit;
-	color: var(--moby-sub-color);
-	background-color: var(--moby-white);
-	border: 2.5px solid var(--moby-primary-dark);
-	border-radius: var(--border-radius);
-	padding-inline: 25px;
-	font-weight: 500;
-	line-height: 2em;
+    outline: none;
+    font-family: inherit;
+    color: var(--moby-sub-color);
+    background-color: var(--moby-white);
+    border: 2.5px solid var(--moby-primary-dark);
+    border-radius: var(--border-radius);
+    padding-inline: 25px;
+    font-weight: 500;
+    line-height: 2em;
+    margin: 10px;
+    width: max-content;
 }
 
 .Moby-StrInput-Label {

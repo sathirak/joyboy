@@ -5,7 +5,7 @@ import Logo from "./Moby.svg";
 
 //These two arrays should be defined from a database, this is a temperory solution
 const permitted_moby_modules = ["Breadboard", "Dashboard", "Analytics", "Template", "Registrar"];
-const startup_moby_module = ["Template"];
+const startup_moby_module = ["Registrar"];
 
 const icons = {};
 
