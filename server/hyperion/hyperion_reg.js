@@ -158,6 +158,10 @@ async function Run_Hyperion_Reg(Moby_Name, Moby_Pass, Moby_Type, Registrar_IP, R
 		const insertion_query_moby_registration = `INSERT INTO moby_registration (mobydex, registration_date, registered_by, registered_ip, deregistration_date, deregistered_by, deregistered_ip)
 		VALUES ('${Mobydex}', CURRENT_TIMESTAMP , '${Registrar}', '${Registrar_IP}', CURRENT_TIMESTAMP , '${Registrar}', '${Registrar_IP}');`;
 
+		const insertion_query_moby_login = `INSERT INTO moby_login (mobydex, login_barred, current_attempt, login_code, last_login_attempt, last_login_attempt_ip, last_login_attempt_status, last_successful_login, last_failed_login)
+		VALUES ('${Mobydex}', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);`;
+
+
 		const mobydex_values = [Mobydex, Moby_Name, Moby_Type, Moby_Hash, Moby_Salt, Registrar, Registrar_IP];
 
 		const null_array = mobydex_values.some(value => value === undefined || value === null || value === '');
@@ -172,20 +176,25 @@ async function Run_Hyperion_Reg(Moby_Name, Moby_Pass, Moby_Type, Registrar_IP, R
 
 		  await query_runner(insertion_query_moby_users);
 		  await query_runner(insertion_query_moby_registration);
+		  await query_runner(insertion_query_moby_login);
 
 		  const updated_row_moby_users = await query_runner(`SELECT * FROM moby_users WHERE mobydex ='${Mobydex}';`);
 
-		  const updated_row_moby_registration = await query_runner(`SELECT * FROM moby_users WHERE mobydex ='${Mobydex}';`);
+		  const updated_row_moby_registration = await query_runner(`SELECT * FROM moby_registration WHERE mobydex ='${Mobydex}';`);
+
+		  const updated_row_moby_login = await query_runner(`SELECT * FROM moby_login WHERE mobydex ='${Mobydex}';`);
 
 		  console.log( "|| Success Run_Hyperion_Reg=> Mobydex entry inserted successfully");
 		  console.log(updated_row_moby_users, updated_row_moby_registration);
 
 		  const parsed_row_moby_users = JSON.parse(JSON.stringify(updated_row_moby_users));
 		  const parsed_row_moby_registration = JSON.parse(JSON.stringify(updated_row_moby_registration));
+		  const parsed_row_moby_login = JSON.parse(JSON.stringify(updated_row_moby_login));
 		  
 		  const message = JSON.stringify({
 			updated_row_moby_users: parsed_row_moby_users,
-			updated_row_moby_registration: parsed_row_moby_registration
+			updated_row_moby_registration: parsed_row_moby_registration,
+			updated_row_moby_login: parsed_row_moby_login
 		  });
 		  
 		  return message;

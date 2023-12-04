@@ -322,9 +322,9 @@ const Registrar = () => {
 
             <div className='Moby-Container-Row'>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module1" name="check" checked={module_permit.module1} onChange={handlePermissionChange} />
-                <label for="module1">
+                <label htmlFor="module1">
                   <span></span>Root Access
                 </label>
               </div>              
@@ -333,79 +333,79 @@ const Registrar = () => {
 
             <div className='Moby-Grid Moby-Grid-Col-6'>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module2" checked={module_permit.module2} onChange={handlePermissionChange} />
-                <label for="module2">
+                <label htmlFor="module2">
                   <span></span>Shield
                 </label>
               </div>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module3" checked={module_permit.module3} onChange={handlePermissionChange} />
-                <label for="module3">
+                <label htmlFor="module3">
                   <span></span>Tables
                 </label>
               </div>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module4" checked={module_permit.module4} onChange={handlePermissionChange} />
-                <label for="module4">
+                <label htmlFor="module4">
                   <span></span>DB Manager
                 </label>
               </div>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module5" checked={module_permit.module5} onChange={handlePermissionChange} />
-                <label for="module5">
+                <label htmlFor="module5">
                   <span></span>Analytics
                 </label>
               </div>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module6" checked={module_permit.module6} onChange={handlePermissionChange} />
-                <label for="module6">
+                <label htmlFor="module6">
                   <span></span>Reports
                 </label>
               </div>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module7" checked={module_permit.module7} onChange={handlePermissionChange} />
-                <label for="module7">
+                <label htmlFor="module7">
                   <span></span>Dashboard
                 </label>
               </div>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module8" checked={module_permit.module8} onChange={handlePermissionChange} />
-                <label for="module8">
+                <label htmlFor="module8">
                   <span></span>Workflow
                 </label>
               </div>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module9" checked={module_permit.module9} onChange={handlePermissionChange} />
-                <label for="module9">
+                <label htmlFor="module9">
                   <span></span>Notifications
                 </label>
               </div>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module10" checked={module_permit.module10} onChange={handlePermissionChange} />
-                <label for="module10">
+                <label htmlFor="module10">
                   <span></span>Security
                 </label>
               </div>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module11" checked={module_permit.module11} onChange={handlePermissionChange} />
-                <label for="module11">
+                <label htmlFor="module11">
                   <span></span>Settings
                 </label>
               </div>
 
-              <div class="Moby-Checkbox">
+              <div className="Moby-Checkbox">
                 <input type="checkbox" id="module12" checked={module_permit.module12} onChange={handlePermissionChange} />
-                <label for="module12">
+                <label htmlFor="module12">
                   <span></span>Integrations
                 </label>
               </div>

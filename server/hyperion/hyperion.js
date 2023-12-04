@@ -46,7 +46,6 @@ conn_moby_user.connect((err) => {
         console.error('Error connecting to database:', err);
         return;
     }
-    console.log('Connected to database!');
 });
 
 //Use the middleware
@@ -59,7 +58,7 @@ router.use(passport.session());
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
-
+let user_ip, current_attempt, login_barred;
 //Passportjs LocalStrategy Configuration
 const credentials = {usernameField: "uname",passwordField: "pw" };
 
@@ -104,35 +103,100 @@ const verify_callback = (username, password, done) => {
 				return done(validErr);
 			}
 
-			if (isValid) {
+            const get_login_barred_query = `
+                SELECT login_barred
+                FROM moby_login
+                WHERE mobydex = ?;
+            `;
 
-				/* const login_query = `
+            conn_moby_user.query(get_login_barred_query, [user.mobydex], (error, results, fields) => {
+                if (error) {
+                    console.log(error);
+                } else {
+
+                    login_barred = results[0].login_barred;
+
+                }
+            });
+
+            if (login_barred === 1) {
+
+                current_attempt = ' and your account is barred!' ;
+                return done(null, false, { current_attempt });
+
+            } else if (isValid) {
+
+				const login_query = `
 					UPDATE moby_login
 					SET last_successful_login = CURRENT_TIMESTAMP(),
 						last_login_attempt = CURRENT_TIMESTAMP(),
 						current_attempt = 0,
-						last_login_attempt_ip = '${req.ip}',
+						last_login_attempt_ip = '${user_ip}',
 						last_login_attempt_status = 'success'
 					WHERE mobydex = ?;
 				`;
 
+                current_attempt = 0;
+
 				conn_moby_user.query(login_query, [user.mobydex], (updateError, updateResults, updateFields) => {
+
 					if (updateError) {
 						console.log(updateError);
-					}
-				}); */
+					} else {
 
-				return done(null, user);
+                        return done(null, false, { current_attempt });
+
+                    }
+                    
+				});
+
+
 
 			} else {
 
-			/*	conn_moby_user.query(login_query, [user.mobydex], (updateError, updateResults, updateFields) => {
-					if (updateError) {
-						console.log(updateError);
-					}
-				});		*/		
+                    const get_current_attempt_query = `
+                        SELECT current_attempt
+                        FROM moby_login
+                        WHERE mobydex = ?;
+                    `;
 
-				return done(null, false);
+                    conn_moby_user.query(get_current_attempt_query, [user.mobydex], (error, results, fields) => {
+                        if (error) {
+                            console.log(error);
+                        } else {
+
+                            current_attempt = results[0].current_attempt;
+
+                            if (current_attempt > 6){
+                                login_barred = 1;
+                            }else {
+                                login_barred = 0;
+                            }
+
+                            const login_query = `
+                                UPDATE moby_login
+                                SET last_failed_login = CURRENT_TIMESTAMP(),
+                                    login_barred = ${login_barred},
+                                    last_login_attempt = CURRENT_TIMESTAMP(),
+                                    current_attempt = current_attempt + 1,
+                                    last_login_attempt_ip = '${user_ip}',
+                                    last_login_attempt_status = 'failure'
+                                WHERE mobydex = ?;
+                            `;
+
+                            conn_moby_user.query(login_query, [user.mobydex], (updateError, updateResults, updateFields) => {
+                                if (updateError) {
+                                    console.log(updateError);
+                                } else {
+                                    
+                                    current_attempt = ' attempts left → ' + (6 - current_attempt);
+
+                                    return done(null, false, { current_attempt });
+
+                                }
+                            });	
+                        }
+                    });
 
 			}
 
@@ -140,7 +204,9 @@ const verify_callback = (username, password, done) => {
 	});
 };
 
-passport.use( new LocalStrategy(credentials, verify_callback));
+passport.use(new LocalStrategy(credentials, (username, password, done) => {
+    verify_callback(username, password, done);
+}));
 
 passport.serializeUser((user, done) => {
 	done(null, user.mobydex);
@@ -212,12 +278,15 @@ router.post("/register", Hyperion_Auth, async (req, res, next) => {
 
 
 router.post("/login", (req, res, next) => {
-	passport.authenticate("local", (err, user, info) => {
+
+    user_ip = req.ip;
+
+	passport.authenticate("local", (err, user, current_attempt) => {
 	  if (err) {
 		return res.status(500).json({ status: false, message: 'There was an internal server error' });
 	  }
 	  if (!user) {
-		return res.status(200).json({ status: false, message: 'Your password is incorrect :(' });
+		return res.status(200).json({ status: false, message: `Your password is incorrect, ${current_attempt.current_attempt}` });
 	  }
 	  req.logIn(user, (loginErr) => {
 		if (loginErr) {
@@ -226,6 +295,7 @@ router.post("/login", (req, res, next) => {
 		return res.status(200).json({ status: true, message: 'Login successful' });
 	  });
 	})(req, res, next);
+
   });
   
 
