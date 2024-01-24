@@ -22,9 +22,7 @@
 &nbsp;
 
 <p align="center">
-  Joyboy is a massive idea, a startup aimed at solving a massive problem that affects a very specific issue.
-  Joyboy is the codename for a project that contains 3 modules Moby, Keiko... in the future there are plans to upgrade this into four modules.
-  But that is for another day. These three modules work toger from different places to create Joyboy, the icon of freedom.
+A dashboard template that you can use for your projects. Also Passwordjs Auth is used in the backend. You can use it or ignore it.
 </p>
 
 <div align="center">
